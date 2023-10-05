@@ -21,10 +21,10 @@ public class ConnDbOps {
     public  boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
-        final String MYSQL_SERVER_URL = "jdbc:mysql://localhost/";
-        final String DB_URL = "jdbc:mysql://localhost:3306/DBname";
-        final String USERNAME = "username";
-        final String PASSWORD = "password";
+        final String MYSQL_SERVER_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/";
+        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
+        final String USERNAME = "catamv3";
+        final String PASSWORD = "Micahel01!";
         //Class.forName("com.mysql.jdbc.Driver");
         try {
             //First, connect to MYSQL server and create the database if not created
@@ -69,9 +69,9 @@ public class ConnDbOps {
     }
 
     public  void queryUserByName(String name) {
-        final String DB_URL = "jdbc:mysql://localhost:3306/DBname";
-        final String USERNAME = "username";
-        final String PASSWORD = "password";
+        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
+        final String USERNAME = "catamv3";
+        final String PASSWORD = "Michael01!";
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -97,9 +97,9 @@ public class ConnDbOps {
     }
 
     public  void listAllUsers() {
-        final String DB_URL = "jdbc:mysql://localhost:3306/DBname";
-        final String USERNAME = "username";
-        final String PASSWORD = "password";
+        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
+        final String USERNAME = "catamv3";
+        final String PASSWORD = "Michael01!";
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -125,9 +125,9 @@ public class ConnDbOps {
     }
 
     public  void insertUser(String name, String email, String phone, String address, String password) {
-        final String DB_URL = "jdbc:mysql://localhost:3306/DBname";
-        final String USERNAME = "username";
-        final String PASSWORD = "password";
+        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
+        final String USERNAME = "catamv3";
+        final String PASSWORD = "Michael01!";
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
