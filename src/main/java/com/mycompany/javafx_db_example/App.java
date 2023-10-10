@@ -21,6 +21,7 @@ public class App extends Application {
     private static ConnDbOps cdbop;
 
     private Stage primaryStage;
+
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
@@ -34,7 +35,7 @@ public class App extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
             Scene scene = new Scene(root, 850, 560);
-            //scene.getStylesheets().add("styling/style.css");
+            scene.getStylesheets().add("@.../Styling/style.css");
             primaryStage.setScene(scene);
             primaryStage.show();
             changeScene();
@@ -51,7 +52,7 @@ public class App extends Application {
 
             Scene currentScene = primaryStage.getScene();
             Parent currentRoot = currentScene.getRoot();
-           // currentScene.getStylesheets().add("styling/style.css");
+            currentScene.getStylesheets().add("Styling/style.css");
             FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), currentRoot);
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
@@ -118,16 +119,25 @@ public class App extends Application {
                     break;
 
                 case 'i':
-                    System.out.print("Enter Name: ");
-                    String name = scan.next();
+                 //   scan = scan.reset();
+                    System.out.print("Enter First Name: ");
+                    String fName = scan.next();
+                    System.out.print("Enter Last Name: ");
+                    String lName = scan.next();
+                    String name = fName + " " + lName;
+                  //  scan = scan.reset();
                     System.out.print("Enter Email: ");
                     String email = scan.next();
+                  //  scan = scan.reset();
                     System.out.print("Enter Phone: ");
                     String phone = scan.next();
+                    scan.nextLine();
                     System.out.print("Enter Address: ");
-                    String address = scan.next();
+                    String address = scan.nextLine();
+
                     System.out.print("Enter Password: ");
                     String password = scan.next();
+                    System.out.println(name + "\t" +email + "\t" + phone + "\t" + address + "\t" + password);
                     cdbop.insertUser(name, email, phone, address, password); //Your insertUser method
                     break;
                 case 'q':
