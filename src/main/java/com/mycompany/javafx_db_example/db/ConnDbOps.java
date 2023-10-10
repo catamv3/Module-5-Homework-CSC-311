@@ -26,6 +26,7 @@ public class ConnDbOps {
         final String USERNAME = "catamv3";
         final String PASSWORD = "Micahel01!";
         //Class.forName("com.mysql.jdbc.Driver");
+
         try {
             //First, connect to MYSQL server and create the database if not created
             Connection conn = DriverManager.getConnection(MYSQL_SERVER_URL, USERNAME, PASSWORD);
