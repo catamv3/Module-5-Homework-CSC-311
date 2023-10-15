@@ -5,4 +5,6 @@ module com.mycompany.javafx_db_example {
 
     opens com.mycompany.javafx_db_example to javafx.fxml;
     exports com.mycompany.javafx_db_example;
+    exports com.mycompany.javafx_db_example.db;
+    opens com.mycompany.javafx_db_example.db to javafx.fxml;
 }

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.PrimaryController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.PrimaryController">
     <children>
         <BorderPane layoutX="-2.0" layoutY="-1.0" prefHeight="535.0" prefWidth="807.0">
             <top>
@@ -61,7 +61,7 @@
                 </TableView>
             </right>
             <left>
-                <VBox prefHeight="264.0" prefWidth="116.0" styleClass="left_pane" BorderPane.alignment="CENTER">
+                <VBox prefHeight="264.0" prefWidth="116.0" styleClass="left_pane" stylesheets="@../../../../../Styling/style.css" BorderPane.alignment="CENTER">
                     <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                             <children>
@@ -104,7 +104,7 @@
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin></Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#editRecord" styleClass="nav_btn" text="Edit">
+                        <Button mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" styleClass="nav_btn" text="Edit">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin></Button>

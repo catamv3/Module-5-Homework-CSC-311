@@ -18,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -32,92 +33,90 @@ import java.util.ResourceBundle;
         <URL value="@../../../../../styling/style.css" />
     </stylesheets>
 
- */
-
-public class PrimaryController implements Initializable {
-
-        @FXML
-        TextField first_name, last_name, department, major;
-        @FXML
-        private TableView<Person> tv;
-        @FXML
-        private TableColumn<Person, Integer> tv_id;
-        @FXML
-        private TableColumn<Person, String> tv_fn, tv_ln, tv_dept, tv_major;
-
-/*
-
-
-
- */
-        @FXML
-        private MenuItem closeItem;
-
-        @FXML
-        private ImageView img_view;
-
-
-        public final ObservableList<Person> data =
-            FXCollections.observableArrayList(
-                    new Person(1, "Michael", "Catalanotti", "CPIS", "CS"),
-                    new Person(2, "Albert", "Einstein", "LAS", "Physics")
-
-            );
- /*       */
-        /**
-         * SO:
+ * SO:
          * a table view uses an observable list to display data.
          * an observable list can store any data type/class, we just have to declare it in a class file.
          * the initialize method below links the observable list to the table view.
          *      in doing the initialize() method, now any time, anything in the list changes
          *      the table view will automatically update.
-         * @param url
-         * @param resourceBundle
+
+ */
+
+public class PrimaryController implements Initializable {
+
+    @FXML
+    TextField first_name, last_name, department, major;
+    @FXML
+    private TableView<Person> tv;
+    @FXML
+    private TableColumn<Person, Integer> tv_id;
+    @FXML
+    private TableColumn<Person, String> tv_fn, tv_ln, tv_dept, tv_major;
+
+
+    @FXML
+    private ImageView img_view;
+
+
+    private final ObservableList<Person> data =
+            FXCollections.observableArrayList(
+                    new Person(1, "Jacob", "Smith", "CPIS", "CS"),
+                    new Person(2, "Jacob2", "Smith1", "CPIS1", "CS")
+
+            );
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        /*
+tv = new TableView<>();
+        tv_id = new TableColumn<>();
+        tv_fn = new TableColumn<>();
+        tv_ln = new TableColumn<>();
+        tv_dept = new TableColumn<>();
+        tv_major = new TableColumn<>();
          */
-        @Override
-        public void initialize(URL url, ResourceBundle resourceBundle) {
-            tv = new TableView<Person>();
-            tv_id = new TableColumn<Person, Integer>();
-            tv_fn = new TableColumn<Person, String>();
-            tv_ln = new TableColumn<Person, String>();
-            tv_dept = new TableColumn<Person, String>();
-            tv_major = new TableColumn<Person, String>();
+
+        tv_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tv_fn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tv_ln.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tv_dept.setCellValueFactory(new PropertyValueFactory<>("dept"));
+        tv_major.setCellValueFactory(new PropertyValueFactory<>("major"));
+
+        tv.setItems(data);
 
 
-            tv_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-            tv_fn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-            tv_ln.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-            tv_dept.setCellValueFactory(new PropertyValueFactory<>("dept"));
-            tv_major.setCellValueFactory(new PropertyValueFactory<>("major"));
+    }
 
-
-            tv.setItems(data);
-        }
-
-
-        @FXML
-        protected void addNewRecord() {
-
-            data.add(new Person(
-                    data.size()+1,
-                    first_name.getText(),
-                    last_name.getText(),
-                    department.getText(),
-                    major.getText()
-            ));
-        }
-
-        @FXML
-        protected void clearForm(){
-            first_name.setText(""); //this works
-            last_name.clear(); //this works also
-            department.setText("");
-            major.setText("");
-        }
+    // Rest of your controller methods...
 
         /**
          * to select a row, you are accessing something on the observable list
          */
+
+        @FXML
+        protected void addNewRecord() {
+            try {
+                data.add(new Person(
+                        data.size()+1,
+                        first_name.getText(),
+                        last_name.getText(),
+                        department.getText(), major.getText()
+                ));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    @FXML
+    protected void clearForm(){
+        first_name.setText(""); //this works
+        last_name.clear(); //this works also
+        department.setText("");
+        major.setText("");
+    }
 
     /*
 
@@ -131,6 +130,8 @@ public class PrimaryController implements Initializable {
             department.setText(p.getDept());
             major.setText(p.getMajor());
         }
+
+
 
         @FXML
         protected void editRecord(){
