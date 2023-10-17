@@ -4,19 +4,22 @@ public class Person {
     private Integer id;
     private String firstName;
     private String lastName;
-    private String dept;
-    private String major;
+    private String email;
+
+    private String address;
+    private String phone;
 
     public Person() {
     }
 
 
-    public Person(Integer id, String firstName, String lastName, String dept, String major) {
+    public Person(Integer id, String firstName, String lastName, String email, String address, String phone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.major = major;
-        this.dept = dept;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
     }
 
     // fix the getters and setters to match the fields
@@ -47,21 +50,27 @@ public class Person {
         this.lastName = lastName;
     }
 
-
-    public String getMajor() {
-        return major;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-
-    public String getDept() {
-        return dept;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDept(String dept) {
-        this.dept = dept;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

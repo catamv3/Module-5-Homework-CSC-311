@@ -28,11 +28,6 @@ import java.util.ResourceBundle;
 
 /*
 
- <stylesheets>
-        <URL value="@../../../../../../styling/style.css" />
-        <URL value="@../../../../../styling/style.css" />
-    </stylesheets>
-
  * SO:
          * a table view uses an observable list to display data.
          * an observable list can store any data type/class, we just have to declare it in a class file.
@@ -45,13 +40,13 @@ import java.util.ResourceBundle;
 public class PrimaryController implements Initializable {
 
     @FXML
-    TextField first_name, last_name, department, major;
+    TextField first_name, last_name, email, address, phone;
     @FXML
     private TableView<Person> tv;
     @FXML
     private TableColumn<Person, Integer> tv_id;
     @FXML
-    private TableColumn<Person, String> tv_fn, tv_ln, tv_dept, tv_major;
+    private TableColumn<Person, String> tv_fn, tv_ln, tv_email, tv_address, tv_phone;
 
 
     @FXML
@@ -60,8 +55,8 @@ public class PrimaryController implements Initializable {
 
     private final ObservableList<Person> data =
             FXCollections.observableArrayList(
-                    new Person(1, "Jacob", "Smith", "CPIS", "CS"),
-                    new Person(2, "Jacob2", "Smith1", "CPIS1", "CS")
+                    new Person(1, "Michael", "Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
+                    new Person(2, "Albert", "Einstein", "albert@hotmail.com", "Europe","070-963-1920")
 
             );
 
@@ -81,8 +76,9 @@ tv = new TableView<>();
         tv_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         tv_fn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         tv_ln.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        tv_dept.setCellValueFactory(new PropertyValueFactory<>("dept"));
-        tv_major.setCellValueFactory(new PropertyValueFactory<>("major"));
+        tv_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tv_address.setCellValueFactory(new PropertyValueFactory<>("address"));
+        tv_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
         tv.setItems(data);
 
@@ -102,7 +98,7 @@ tv = new TableView<>();
                         data.size()+1,
                         first_name.getText(),
                         last_name.getText(),
-                        department.getText(), major.getText()
+                        email.getText(), address.getText(),phone.getText()
                 ));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -114,8 +110,9 @@ tv = new TableView<>();
     protected void clearForm(){
         first_name.setText(""); //this works
         last_name.clear(); //this works also
-        department.setText("");
-        major.setText("");
+        email.setText("");
+        address.setText("");
+        phone.setText("");
     }
 
     /*
@@ -127,8 +124,9 @@ tv = new TableView<>();
             Person p = tv.getSelectionModel().getSelectedItem();
             first_name.setText(p.getFirstName());
             last_name.setText(p.getLastName());
-            department.setText(p.getDept());
-            major.setText(p.getMajor());
+            email.setText(p.getEmail());
+            address.setText(p.getAddress());
+            phone.setText(p.getPhone());
         }
 
 
@@ -146,8 +144,9 @@ tv = new TableView<>();
 
             p2.setFirstName(first_name.getText());
             p2.setLastName(last_name.getText());
-            p2.setDept(department.getText());
-            p2.setMajor(major.getText());
+            p2.setEmail(email.getText());
+            p2.setAddress(address.getText());
+            p2.setPhone(phone.getText());
 
             data.remove(c);
             data.add(c,p2);

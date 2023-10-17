@@ -26,6 +26,7 @@ public class App extends Application {
         this.primaryStage = primaryStage;
         Pane root = new Pane(); // Use a concrete layout class like Pane
         scene = new Scene(root, 640, 480);
+
         primaryStage.setScene(scene);
 
         this.primaryStage.setResizable(false);
