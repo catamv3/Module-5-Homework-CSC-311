@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.javafx_db_example.db;
 
 import java.sql.Connection;
@@ -16,8 +12,8 @@ import java.sql.Statement;
  * @author MoaathAlrajab
  */
 public class ConnDbOps {
-    
-    
+
+
     public  boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
@@ -25,7 +21,12 @@ public class ConnDbOps {
         final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
         final String USERNAME = "catamv3";
         final String PASSWORD = "Micahel01!";
-        //Class.forName("com.mysql.jdbc.Driver");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         try {
             //First, connect to MYSQL server and create the database if not created
             Connection conn = DriverManager.getConnection(MYSQL_SERVER_URL, USERNAME, PASSWORD);
@@ -105,7 +106,7 @@ public class ConnDbOps {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "SELECT * FROM users ";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
+            
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -152,5 +153,5 @@ public class ConnDbOps {
         }
     }
 
-    
+
 }
