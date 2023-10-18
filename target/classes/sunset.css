@@ -3,9 +3,90 @@
     -fx-background-color: linear-gradient(to bottom, #FFABAB, #FFC3A0, #FF677D, #D4A5A5, #DC3D3D);
 }
 
+.cascading-vbox {
+    -fx-background-color: linear-gradient(#FF9100,#DC3D3D,#D4A5A5,#ebcc34,#FFC3A0, #E071BA);
+}
+
+
+
+.myButton {
+	-fx-background:linear-gradient(to bottom, #ffef87 5%, #ff7300 100%);
+	-fx-background-color:#ffef87;
+	-fx-border-radius:33px;
+	-fx-border:7px solid #ffeccf;
+	-fx-display:inline-block;
+	-fx-cursor:pointer;
+	-fx-color:#ad10ad;
+	-fx-font-family:Arial;
+	-fx-font-size:15px;
+	-fx-padding:10px 32px;
+	-fx-text-decoration:none;
+	-fx-text-shadow:0px 1px 0px #fa9849;
+}
+
+.myButton:hover {
+	-fx-background:linear-gradient(to bottom, #ff7300 100%, #ffef87 100%);
+	-fx-background-color:#ff7300;
+}
+.myButton:active {
+	-fx-position:relative;
+	-fx-top:1px;
+}
+
+.vbox-with-gradient {
+    -fx-background-color: linear-gradient(to bottom, orange, yellow);
+    -fx-background-radius: -50, 0;
+    -fx-background-insets: 0, 0;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 100px; /* Adjust the width as needed */
+    -fx-pref-height: 100px; /* Adjust the height as needed */
+}
+
+.vbox-with-gradient .center-point {
+    -fx-background-color: orange;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-min-width: 20px; /* Adjust the size of the point as needed */
+    -fx-min-height: 20px; /* Adjust the size of the point as needed */
+}
+
+.vbox {
+    -fx-border-color: #2e8b57;
+    -fx-border-width: 2px;
+    -fx-padding: 10;
+    -fx-spacing: 8;
+}
+
+.left_pane {
+    -fx-background-color:#ebcc34;
+    -fx-pref-width:150px;
+    -fx-pref-height:600px;
+}
+
+.bottom_pane {
+    -fx-background-color:#ebcc34;
+}
+.profile_pic{
+    -fx-stroke: #dedddc;
+    -fx-stroke-width: 2;
+}
+
+/*
+color codes
+the orange  the yellow      the pink
+FF9100        ebcc34         E071BA
+*/
+
 /* Menu Bar style */
 .menu-bar {
     -fx-background-color: #FF9100; /* Yellow */
+}
+
+.right_pane {
+    -fx-background-color:#ebcc34;
+    -fx-pref-width:150px;
+    -fx-pref-height:600px;
 }
 
 /* Menu Item style */
@@ -25,10 +106,28 @@
     -fx-text-fill: #DC3D3D; /* Dark Red Text Color */
 }
 
-/* Buttons with different colors */
-.myButton {
-    -fx-background: linear-gradient(to bottom, #FFEF87, #FF9100, #E071BA); /* Yellow, Orange, Pink */
-    -fx-text-fill: #DC3D3D; /* Dark Red Text Color */
+.myBut:hover {
+	-fx-background:linear-gradient(to bottom, #ff7300 5%, #ffef87 100%);
+	-fx-background-color:#ff7300;
+}
+.myBut:active {
+	-fx-position:relative;
+	-fx-top:1px;
+}
+
+.myBut {
+	-fx-background:linear-gradient(to bottom, #ffef87 5%, #ff7300 100%);
+	-fx-background-color:#ffef87;
+	-fx-border-radius:33px;
+	-fx-border:7px solid #ffeccf;
+	-fx-display:inline-block;
+	-fx-cursor:pointer;
+	-fx-color:#ad10ad;
+	-fx-font-family:Arial;
+	-fx-font-size:15px;
+	-fx-padding:10px 32px;
+	-fx-text-decoration:none;
+	-fx-text-shadow:0px 1px 0px #fa9849;
 }
 
 /* Left Pane style */
