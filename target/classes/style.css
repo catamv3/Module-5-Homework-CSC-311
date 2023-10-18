@@ -11,8 +11,9 @@
     -fx-pref-height:40px;
 }
 
+
 .left_pane {
-    -fx-background-color:#f88;
+    -fx-background-color:#fff;
     -fx-pref-width:150px;
     -fx-pref-height:600px;
 }

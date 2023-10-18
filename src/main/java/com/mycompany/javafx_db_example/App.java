@@ -25,7 +25,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         Pane root = new Pane(); // Use a concrete layout class like Pane
-        scene = new Scene(root, 640, 480);
+        scene = new Scene(root, 850, 560);
 
         primaryStage.setScene(scene);
 
@@ -58,6 +58,7 @@ public class App extends Application {
         fadeOut.setToValue(0);
         fadeOut.setOnFinished(e -> {
             Scene newScene = new Scene(newRoot, 850, 560);
+
             primaryStage.setScene(newScene);
         });
 
@@ -89,8 +90,8 @@ public class App extends Application {
             System.out.println("| To exit,                press 'e' |");
             System.out.println("===================================");
             System.out.print("Enter your choice: ");
-            input = scan.next().charAt(0);
-
+            //input = scan.next().charAt(0);
+            input = 'g';
             switch (input) {
                 case 'g':
                     launch(args); // Start the GUI
