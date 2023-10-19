@@ -1,0 +1,9 @@
+.menu-bar {
+    /*  -fx-background-color: #FF9100; */
+    -fx-background-color: ##5d2073; /* Yellow */
+}
+.menu-item {
+    -fx-background-color: #FFEF87;
+                            /* Orange */
+    -fx-text-fill: #FFC3A0; /* Light Orange Text Color */
+}

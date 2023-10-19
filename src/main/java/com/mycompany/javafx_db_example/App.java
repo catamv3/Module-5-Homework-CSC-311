@@ -58,6 +58,7 @@ public class App extends Application {
         fadeOut.setToValue(0);
         fadeOut.setOnFinished(e -> {
             Scene newScene = new Scene(newRoot, 850, 560);
+            primaryStage.setTitle("Algarvae Sunset");
 
             primaryStage.setScene(newScene);
         });
@@ -90,8 +91,8 @@ public class App extends Application {
             System.out.println("| To exit,                press 'e' |");
             System.out.println("===================================");
             System.out.print("Enter your choice: ");
-            //input = scan.next().charAt(0);
-            input = 'g';
+            input = scan.next().charAt(0);
+
             switch (input) {
                 case 'g':
                     launch(args); // Start the GUI
