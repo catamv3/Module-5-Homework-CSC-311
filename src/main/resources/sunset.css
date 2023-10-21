@@ -3,6 +3,7 @@
     -fx-background-color: linear-gradient(to bottom, #FFABAB, #FFC3A0, #FF677D, #D4A5A5, #DC3D3D);
 }
 
+/*  Top pane */
 .menu-bar {
     -fx-background-color: #FF9100; /* Yellow */
 }
@@ -12,14 +13,14 @@
     -fx-text-fill: #FFC3A0; /* Light Orange Text Color */
 }
 
-
-.cascading-vbox {
-    -fx-background-color: linear-gradient(#FF9100,#DC3D3D,#D4A5A5,#ebcc34,#FFC3A0, #E071BA);
-}
+/*left pane */
 .lcascading-vbox {
     -fx-background-color: linear-gradient(#FF9100,#DC3D3D,#E071BA);
 }
 
+.cascading-vbox {
+    -fx-background-color: linear-gradient(#FF9100,#DC3D3D,#D4A5A5,#ebcc34,#FFC3A0, #E071BA);
+}
 
 
 .myButton {

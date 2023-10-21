@@ -1,9 +1,43 @@
+/*
+Color list
+
+Blue
+    1. #6f68f7 pale blue
+    2. #3e3b6e  basement blue
+
+
+Purple (light to dark)
+    1.#c691cc;  light purple
+    2. #ab22ba eggplant
+    2.#5d2073 - dark purple)
+
+*/
+
+
+/*  Left pane   */
+
+/*
+top to bottom colors eggplant, light pale blue, dark purple, basement blue,
+*/
+.lcascading-vbox {
+    -fx-background-color: linear-gradient(#ab22ba,#6f68f7,#5d2073 #3e3b6e,#5f3b6e);
+}
+
+.pane {
+    -fx-background-color: linear-gradient(to bottom, #FFABAB, #FFC3A0, #FF677D, #D4A5A5, #DC3D3D);
+    -fx-pane-
+}
+
+/*  Bottom Pane */
+.bottom_pane {
+    -fx-background-color: #5f3b6e;
+}
+
+/*  Top pane */
 .menu-bar {
     /*  -fx-background-color: #FF9100; */
-    -fx-background-color: ##5d2073; /* Yellow */
+    -fx-background-color: #ab22ba; /* eggplant purple */
 }
 .menu-item {
-    -fx-background-color: #FFEF87;
-                            /* Orange */
-    -fx-text-fill: #FFC3A0; /* Light Orange Text Color */
+    -fx-background-color: #c691cc; /* light purple*/
 }
