@@ -8,30 +8,35 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
+ * This file stores information to establish a database connection.
  * @author MoaathAlrajab
  */
 public class ConnDbOps {
-
-
+    final String MYSQL_SERVER_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/";
+    final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/csc311_class";
+    final String USERNAME = "catamv3@michaelcac311";
+    final String PASSWORD = "Michael01!";
+    /**
+     * This method establishes <b> A database connection!</b>
+     * @return <ol><li><i>false</i> if no registered users</li>
+     *          <li><i>True </i> otherwise</li></ol>
+     */
     public  boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
-        final String MYSQL_SERVER_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/";
-        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
-        final String USERNAME = "catamv3";
-        final String PASSWORD = "Micahel01!";
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
+
         try {
             //First, connect to MYSQL server and create the database if not created
             Connection conn = DriverManager.getConnection(MYSQL_SERVER_URL, USERNAME, PASSWORD);
             Statement statement = conn.createStatement();
-            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS DBname");
+            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS csc311_class");
             statement.close();
             conn.close();
 
@@ -69,10 +74,14 @@ public class ConnDbOps {
         return hasRegistredUsers;
     }
 
+
+    /**
+     * this method querys user info based on their <b>name</b>
+     *
+     * @param name- string arg for name.
+     */
     public  void queryUserByName(String name) {
-        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
-        final String USERNAME = "catamv3";
-        final String PASSWORD = "Michael01!";
+
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -97,10 +106,15 @@ public class ConnDbOps {
         }
     }
 
+    /**
+     * this method lists all the users in the database.
+     * <ol> <li> first it opens a connection</li>
+     * <li>then executes a query statement</li>
+     * <li> then returns the information requested</li>
+     * <li>and finally closes the connection</li></ol>
+     */
     public  void listAllUsers() {
-        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
-        final String USERNAME = "catamv3";
-        final String PASSWORD = "Michael01!";
+
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
@@ -125,10 +139,28 @@ public class ConnDbOps {
         }
     }
 
+    /**
+     * <p>
+     *     this method inserts a user into the database
+     *     the <b><i>person</i></b> object requires :
+     *     <ol>
+     *         <li>a name</li>
+     *         <li>an email</li>
+     *         <li>an address</li>
+     *         <li>a phone number</li>
+     *         <li>a password</li>
+     *
+     *     </ol>
+     * </p>
+     *
+     * @param name
+     * @param email
+     * @param phone
+     * @param address
+     * @param password
+     */
     public  void insertUser(String name, String email, String phone, String address, String password) {
-        final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/DBname";
-        final String USERNAME = "catamv3";
-        final String PASSWORD = "Michael01!";
+
 
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
