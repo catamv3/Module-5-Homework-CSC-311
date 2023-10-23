@@ -56,7 +56,7 @@
                 <HBox prefHeight="35.0" prefWidth="850.0" styleClass="bottom_pane" stylesheets="@../../../sunset.css" BorderPane.alignment="CENTER" />
             </bottom>
          <center>
-            <TableView fx:id="tv" editable="true" onMouseClicked="#selectedItemTV" prefHeight="467.0" prefWidth="525.0" stylesheets="@../../../sunTheme.css" BorderPane.alignment="CENTER">
+            <TableView fx:id="tv" editable="true" onMouseClicked="#selectedItemTV" prefHeight="467.0" prefWidth="525.0" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn fx:id="tv_id" styleClass="column-header-background" text="ID" />
                   <TableColumn fx:id="tv_fn" styleClass="column-header-background" text="First Name" />
@@ -98,22 +98,22 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#clearForm" stylesheets="@../../../sunset.css" text="Clear">
+                  <Button mnemonicParsing="false" onAction="#clearForm" styleClass="myButton" stylesheets="@../../../sunset.css" text="Clear">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addNewRecord" styleClass="star-button" stylesheets="@../../../sunset.css" text="Add" textAlignment="CENTER">
+                  <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addNewRecord" styleClass="myButton" stylesheets="@../../../sunset.css" text="Add" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" styleClass="star-button" stylesheets="@../../../sunset.css" text="Edit" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" styleClass="myButton" stylesheets="@../../../sunset.css" text="Edit" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#deleteRecord" prefWidth="53.0" styleClass="star-button" stylesheets="@../../../sunset.css" text="Delete" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#deleteRecord" prefHeight="37.0" prefWidth="116.0" styleClass="myButton" stylesheets="@../../../sunset.css" text="Delete" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>

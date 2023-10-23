@@ -71,6 +71,9 @@ public class PrimaryController implements Initializable {
 
             );
 
+    //declare a controler CONSTRUCTOR that accpts a stage
+    //declare a controller that accepts an observable lsit and a stage
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -102,22 +105,44 @@ tv = new TableView<>();
     @FXML
     private MenuItem viewItem;
 
+/*
+
+
 
     @FXML
-    protected void changeScene() {
-
-        scene.getStylesheets().remove(0);
-        // scene.getStylesheets().add("moonTheme.fxml");
-        scene.getStylesheets().remove(0);
-        scene.getStylesheets().add(getClass().getResource("moonTheme.css").toExternalForm());
+    private void changeScene() {
+        //Parent newRoot = FXMLLoader.load(getClass().getResource("primary.fxml"));
 
         Scene currentScene = stage.getScene();
-        Parent currentRoot = currentScene.getRoot();
-        Scene newScene = new Scene(root, 850, 560);
-        stage.setTitle("Moonset");
+        currentScene.getStylesheets().clear();
+        scene.getStylesheets().add("moonTheme.css")
+        Parent currentRoot = scene.getRoot();
 
-        stage.setScene(newScene);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), currentRoot);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setOnFinished(e -> {
+            Scene newScene = new Scene(newRoot, 850, 560);
+            primaryStage.setTitle("Algarvae Sunset");
+
+            primaryStage.setScene(newScene);
+        });
+
+        fadeOut.play();
     }
+
+
+
+    */
+
+    @FXML
+    private void changeScene() {
+    Scene newScene = stage.getScene();
+    newScene.getStylesheets().clear();
+    newScene.getStylesheets().add("moonTheme.css");
+    stage.setScene(newScene);
+}
 
         @FXML
         protected void addNewRecord() {

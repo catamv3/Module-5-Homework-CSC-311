@@ -27,7 +27,6 @@
 	-fx-background:linear-gradient(to bottom, #ffef87 5%, #ff7300 100%);
 	-fx-background-color:#ffef87;
 	-fx-border-radius:33px;
-	-fx-border:7px solid #ffeccf;
 	-fx-display:inline-block;
 	-fx-cursor:pointer;
 	-fx-color:#ad10ad;
@@ -35,7 +34,6 @@
 	-fx-font-size:15px;
 	-fx-padding:10px 32px;
 	-fx-text-decoration:none;
-	-fx-text-shadow:0px 1px 0px #fa9849;
 }
 
 .myButton:hover {
@@ -123,7 +121,6 @@ FF9100        ebcc34         E071BA
 	-fx-background:linear-gradient(to bottom, #ffef87 5%, #ff7300 100%);
 	-fx-background-color:#ffef87;
 	-fx-border-radius:33px;
-	-fx-border:7px solid #ffeccf;
 	-fx-display:inline-block;
 	-fx-cursor:pointer;
 	-fx-color:#ad10ad;
@@ -131,7 +128,6 @@ FF9100        ebcc34         E071BA
 	-fx-font-size:15px;
 	-fx-padding:10px 32px;
 	-fx-text-decoration:none;
-	-fx-text-shadow:0px 1px 0px #fa9849;
 }
 
 /* Left Pane style */

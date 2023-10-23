@@ -25,7 +25,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         Pane root = new Pane(); // Use a concrete layout class like Pane
-        scene = new Scene(root, 850, 560);
+        scene = new Scene(root, 640, 480);
 
         primaryStage.setScene(scene);
 
@@ -58,8 +58,6 @@ public class App extends Application {
         fadeOut.setToValue(0);
         fadeOut.setOnFinished(e -> {
             Scene newScene = new Scene(newRoot, 850, 560);
-            primaryStage.setTitle("Algarvae Sunset");
-
             primaryStage.setScene(newScene);
         });
 

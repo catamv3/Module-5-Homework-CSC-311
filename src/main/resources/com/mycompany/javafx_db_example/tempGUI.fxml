@@ -71,49 +71,49 @@
             </TableView>
          </center>
          <right>
-            <VBox prefHeight="513.0" styleClass="cascading-vbox" stylesheets="@../../../sunset.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="513.0" styleClass="cascading-vbox" stylesheets="@../../../moonTheme.css" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="first_name" promptText="First Name" styleClass="text-field" stylesheets="@../../../sunset.css">
+                  <TextField fx:id="first_name" promptText="First Name" styleClass="text-field">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="last_name" promptText="Last Name" styleClass="text-field" stylesheets="@../../../sunset.css">
+                  <TextField fx:id="last_name" promptText="Last Name" styleClass="text-field">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="email" promptText="Email" styleClass="text-field" stylesheets="@../../../sunset.css">
+                  <TextField fx:id="email" promptText="Email" styleClass="text-field">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="address" layoutX="20.0" layoutY="77.0" prefHeight="25.0" prefWidth="174.0" promptText="Address" styleClass="text-field" stylesheets="@../../../sunset.css">
+                  <TextField fx:id="address" layoutX="20.0" layoutY="77.0" prefHeight="25.0" prefWidth="174.0" promptText="Address" styleClass="text-field">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="phone" promptText="Phone" styleClass="text-field" stylesheets="@../../../sunset.css">
+                  <TextField fx:id="phone" promptText="Phone" styleClass="text-field">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#clearForm" stylesheets="@../../../sunset.css" text="Clear">
+                  <Button mnemonicParsing="false" onAction="#clearForm" styleClass="myButton" stylesheets="@../../../moonTheme.css" text="Clear">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addNewRecord" styleClass="star-button" stylesheets="@../../../sunset.css" text="Add" textAlignment="CENTER">
+                  <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addNewRecord" styleClass="myButton" text="Add" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" styleClass="star-button" stylesheets="@../../../sunset.css" text="Edit" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" styleClass="myButton" text="Edit" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#deleteRecord" prefWidth="53.0" styleClass="star-button" stylesheets="@../../../sunset.css" text="Delete" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#deleteRecord" prefHeight="37.0" prefWidth="111.0" styleClass="myButton" text="Delete" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
