@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.LoginScreenController">
    <children>
       <ImageView fitHeight="536.0" fitWidth="753.0" pickOnBounds="true" preserveRatio="true">
@@ -33,8 +32,8 @@
                   </TextField>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="loginButton" alignment="CENTER" layoutX="61.0" layoutY="1.0" mnemonicParsing="false" text="Login" />
-                        <Button fx:id="createAccBtn" alignment="CENTER" layoutX="35.0" layoutY="43.0" mnemonicParsing="false" text="Create Account" />
+                        <Button fx:id="loginButton" alignment="CENTER" layoutX="61.0" layoutY="1.0" mnemonicParsing="false" onAction="#loginClicked" text="Login" />
+                        <Button fx:id="createAccBtn" alignment="CENTER" layoutX="35.0" layoutY="43.0" mnemonicParsing="false" onAction="#createAccountClicked" text="Create Account" />
                      </children>
                   </Pane>
                </children>
