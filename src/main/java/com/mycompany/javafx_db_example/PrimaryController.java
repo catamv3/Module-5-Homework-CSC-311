@@ -29,13 +29,11 @@ import javafx.stage.Stage;
 public class PrimaryController implements Initializable {
 
     @FXML
-    TextField name, email, address, phone;
+    TextField id, name, email, address, phone;
     @FXML
     private TableView<Person> tv;
     @FXML
-    private TableColumn<Person, Integer> tv_id;
-    @FXML
-    private TableColumn<Person, String> tv_name, tv_email, tv_address, tv_phone;
+    private TableColumn<Person, String> tv_id, tv_name, tv_email, tv_address, tv_phone;
     @FXML
     private ImageView img_view;
 
@@ -52,8 +50,10 @@ public class PrimaryController implements Initializable {
 
     private final ObservableList<Person> data =
             FXCollections.observableArrayList(
-                    new Person(1, "Michael Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
-                    new Person(2, "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
+                    new Person("stu", "Michael Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
+                    new Person("stu", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920"),
+                    new Person("1", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
+                    , new Person("2", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
 
             );
 
@@ -64,12 +64,12 @@ public class PrimaryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         tv_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tv_name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        tv_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         tv_email.setCellValueFactory(new PropertyValueFactory<>("email"));
         tv_address.setCellValueFactory(new PropertyValueFactory<>("address"));
         tv_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         tv.setItems(data);
-        viewHandler = new App.ThemeHandler();
+        //viewHandler = new App.ThemeHandler();
     }
     
 
@@ -92,8 +92,8 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-    private void closeScreen(){
-
+    private void closeScreen(ActionEvent event){
+        System.exit(1);
     }
 
 
@@ -101,7 +101,7 @@ public class PrimaryController implements Initializable {
         protected void addNewRecord() {
             try {
                 data.add(new Person(
-                        data.size()+1,
+                        id.getText(),
                         name.getText(),
                         email.getText(), address.getText(),phone.getText()
                 ));
@@ -113,6 +113,7 @@ public class PrimaryController implements Initializable {
 
     @FXML
     protected void clearForm(){
+        id.setText("");
         name.setText(""); //this works
         //last_name.clear(); //this works also
         email.setText("");
@@ -127,6 +128,7 @@ public class PrimaryController implements Initializable {
         @FXML
         protected void selectedItemTV(MouseEvent mouseEvent){
             Person p = tv.getSelectionModel().getSelectedItem();
+            id.setText(p.getId());
             name.setText(p.getName());
             email.setText(p.getEmail());
             address.setText(p.getAddress());
@@ -144,8 +146,7 @@ public class PrimaryController implements Initializable {
 
             int c = data.indexOf(p);
             Person p2 = new Person();
-            p2.setId(c+1);
-
+            p2.setId(id.getText());
             p2.setName(name.getText());
             p2.setEmail(email.getText());
             p2.setAddress(address.getText());
@@ -160,7 +161,14 @@ public class PrimaryController implements Initializable {
         @FXML
         protected void deleteRecord(){
             Person p = tv.getSelectionModel().getSelectedItem();
-            data.remove(p);
+            //System.out.println(p.toString());
+            int c = data.indexOf(p);
+            //tv.getSelectionModel().select(c);
+            data.remove(c);
+            tv.refresh();
+
+
+
         }
 
         /**

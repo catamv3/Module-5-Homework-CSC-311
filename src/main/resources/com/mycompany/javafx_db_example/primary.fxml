@@ -58,11 +58,11 @@
             <center>
                 <TableView fx:id="tv" editable="true" onMouseClicked="#selectedItemTV" prefHeight="467.0" prefWidth="525.0" BorderPane.alignment="CENTER">
                     <columns>
-                        <TableColumn fx:id="tv_id" text="ID" styleClass="column-header-background" />
-                        <TableColumn fx:id="tv_name" text="Name" styleClass="column-header-background" />
-                        <TableColumn fx:id="tv_email" text="Email" styleClass="column-header-background" />
-                        <TableColumn fx:id="tv_address" text="Address" styleClass="column-header-background" />
-                        <TableColumn fx:id="tv_phone" text="Phone" styleClass="column-header-background" />
+                        <TableColumn fx:id="tv_id" styleClass="column-header-background" text="ID" />
+                        <TableColumn fx:id="tv_name" styleClass="column-header-background" text="Name" />
+                        <TableColumn fx:id="tv_email" styleClass="column-header-background" text="Email" />
+                        <TableColumn fx:id="tv_address" styleClass="column-header-background" text="Address" />
+                        <TableColumn fx:id="tv_phone" styleClass="column-header-background" text="Phone" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -72,6 +72,14 @@
             <right>
                 <VBox prefHeight="513.0" styleClass="cascading-vbox" BorderPane.alignment="CENTER">
                     <children>
+                  <TextField fx:id="id" layoutX="20.0" layoutY="15.0" promptText="Id">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
                         <TextField fx:id="name" promptText="Name">
                             <VBox.margin>
                                 <Insets left="10.0" right="10.0" top="5.0" />
@@ -102,12 +110,12 @@
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" text="Edit" textAlignment="CENTER">
+                        <Button fx:id="editBtn" mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" text="Edit" textAlignment="CENTER">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button layoutX="20.0" layoutY="233.0" mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" text="Delete" textAlignment="CENTER">
+                        <Button fx:id="deleteBtn" layoutX="20.0" layoutY="233.0" mnemonicParsing="false" onAction="#deleteRecord" onMouseClicked="#editRecord" text="Delete" textAlignment="CENTER">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
