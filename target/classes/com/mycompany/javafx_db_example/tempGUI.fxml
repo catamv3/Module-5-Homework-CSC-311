@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../../sunset.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.PrimaryController">
+    <children>
+        <BorderPane prefHeight="560.0" prefWidth="850.0">
+            <top>
+                <MenuBar prefHeight="0.0" prefWidth="1045.0" BorderPane.alignment="CENTER">
+                    <menus>
+                        <Menu mnemonicParsing="false" styleClass="menu-bar" text="File">
+                            <items>
+                                <MenuItem fx:id="closeItem" mnemonicParsing="false" onAction="#closeScreen" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" styleClass="menu-bar" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" styleClass="menu-bar" text="View">
+                            <items>
+                                <MenuItem fx:id="viewItem" mnemonicParsing="false" onAction="#changeScene" text="Themes" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" styleClass="menu-bar" text="Settings">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" styleClass="menu-bar" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </top>
+            <left>
+                <VBox prefHeight="264.0" prefWidth="116.0" styleClass="lcascading-vbox" BorderPane.alignment="CENTER" />
+            </left>
+            <bottom>
+                <HBox prefHeight="35.0" prefWidth="850.0" styleClass="bottom_pane" BorderPane.alignment="CENTER" />
+            </bottom>
+         <center>
+            <TableView fx:id="tv" editable="true" onMouseClicked="#selectedItemTV" prefHeight="467.0" prefWidth="525.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="tv_id" styleClass="column-header-background" text="ID" />
+                  <TableColumn fx:id="tv_fn" styleClass="column-header-background" text="First Name" />
+                  <TableColumn fx:id="tv_ln" styleClass="column-header-background" text="Last Name" />
+                  <TableColumn fx:id="tv_email" styleClass="column-header-background" text="Email" />
+                  <TableColumn fx:id="tv_address" styleClass="column-header-background" text="Address" />
+                  <TableColumn fx:id="tv_phone" styleClass="column-header-background" text="Phone" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
+         <right>
+            <VBox prefHeight="513.0" styleClass="cascading-vbox" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="first_name" promptText="First Name" styleClass="text-field">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="last_name" promptText="Last Name" styleClass="text-field">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="email" promptText="Email" styleClass="text-field">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="address" layoutX="20.0" layoutY="77.0" prefHeight="25.0" prefWidth="174.0" promptText="Address" styleClass="text-field">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="phone" promptText="Phone" styleClass="text-field">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#clearForm" styleClass="myButton" text="Clear">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addNewRecord" styleClass="myButton" text="Add" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#editRecord" onMouseClicked="#editRecord" styleClass="myButton" text="Edit" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#deleteRecord" prefHeight="37.0" prefWidth="111.0" styleClass="myButton" text="Delete" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <ImageView fx:id="img_view" fitHeight="103.0" fitWidth="85.0" onMouseClicked="#showImage" pickOnBounds="true" preserveRatio="true" styleClass="profile_pic">
+                     <image>
+                        <Image url="@profile.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </right>
+        </BorderPane>
+    </children>
+    
+</AnchorPane>

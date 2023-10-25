@@ -30,6 +30,7 @@ public class App extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
             Scene splashScene = new Scene(root, 850, 560);
 
+
             // Load the primary FXML file here
             Parent loginRoot = FXMLLoader.load(getClass().getResource("loginScreen.fxml"));
 
@@ -58,6 +59,7 @@ public class App extends Application {
                 if (isSun) {
                     isSun = !isSun;
 
+                    //Parent root = new Parent();
                     Scene darkView = new Scene(scene.getRoot(), 850, 560);
                     darkView.getStylesheets().clear();
                     darkView.getStylesheets().add(ThemeHandler.class.getResource("moonTheme.css").toExternalForm());
