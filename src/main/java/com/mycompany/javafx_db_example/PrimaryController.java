@@ -29,13 +29,11 @@ import javafx.stage.Stage;
 public class PrimaryController implements Initializable {
 
     @FXML
-    TextField name, email, address, phone;
+    TextField id, name, email, address, phone;
     @FXML
     private TableView<Person> tv;
     @FXML
-    private TableColumn<Person, Integer> tv_id;
-    @FXML
-    private TableColumn<Person, String> tv_name, tv_email, tv_address, tv_phone;
+    private TableColumn<Person, String> tv_id, tv_name, tv_email, tv_address, tv_phone;
     @FXML
     private ImageView img_view;
 
@@ -52,8 +50,8 @@ public class PrimaryController implements Initializable {
 
     private final ObservableList<Person> data =
             FXCollections.observableArrayList(
-                    new Person(1, "Michael Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
-                    new Person(2, "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
+                    new Person("stu", "Michael Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
+                    new Person("stu", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
 
             );
 
@@ -92,8 +90,8 @@ public class PrimaryController implements Initializable {
     }
 
     @FXML
-    private void closeScreen(){
-
+    private void closeScreen(ActionEvent event){
+        System.exit(1);
     }
 
 
@@ -101,7 +99,7 @@ public class PrimaryController implements Initializable {
         protected void addNewRecord() {
             try {
                 data.add(new Person(
-                        data.size()+1,
+                        id.getId(),
                         name.getText(),
                         email.getText(), address.getText(),phone.getText()
                 ));
@@ -144,7 +142,7 @@ public class PrimaryController implements Initializable {
 
             int c = data.indexOf(p);
             Person p2 = new Person();
-            p2.setId(c+1);
+            p2.setId(id.getId());
 
             p2.setName(name.getText());
             p2.setEmail(email.getText());
@@ -161,6 +159,8 @@ public class PrimaryController implements Initializable {
         protected void deleteRecord(){
             Person p = tv.getSelectionModel().getSelectedItem();
             data.remove(p);
+
+
         }
 
         /**
