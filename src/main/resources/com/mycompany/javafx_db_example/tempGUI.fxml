@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../../moonTheme.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.PrimaryController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" stylesheets="@../../../sunset.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.PrimaryController">
     <children>
         <BorderPane prefHeight="560.0" prefWidth="850.0">
             <top>
-                <MenuBar prefHeight="0.0" prefWidth="1045.0" stylesheets="@../../../moonTheme.css" BorderPane.alignment="CENTER">
+                <MenuBar prefHeight="0.0" prefWidth="1045.0" BorderPane.alignment="CENTER">
                     <menus>
                         <Menu mnemonicParsing="false" styleClass="menu-bar" text="File">
                             <items>
@@ -50,13 +50,13 @@
                 </MenuBar>
             </top>
             <left>
-                <VBox prefHeight="264.0" prefWidth="116.0" styleClass="lcascading-vbox" stylesheets="@../../../moonTheme.css" BorderPane.alignment="CENTER" />
+                <VBox prefHeight="264.0" prefWidth="116.0" styleClass="lcascading-vbox" BorderPane.alignment="CENTER" />
             </left>
             <bottom>
-                <HBox prefHeight="35.0" prefWidth="850.0" styleClass="bottom_pane" stylesheets="@../../../moonTheme.css" BorderPane.alignment="CENTER" />
+                <HBox prefHeight="35.0" prefWidth="850.0" styleClass="bottom_pane" BorderPane.alignment="CENTER" />
             </bottom>
          <center>
-            <TableView fx:id="tv" editable="true" onMouseClicked="#selectedItemTV" prefHeight="467.0" prefWidth="525.0" stylesheets="@../../../sunTheme.css" BorderPane.alignment="CENTER">
+            <TableView fx:id="tv" editable="true" onMouseClicked="#selectedItemTV" prefHeight="467.0" prefWidth="525.0" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn fx:id="tv_id" styleClass="column-header-background" text="ID" />
                   <TableColumn fx:id="tv_fn" styleClass="column-header-background" text="First Name" />
@@ -71,7 +71,7 @@
             </TableView>
          </center>
          <right>
-            <VBox prefHeight="513.0" styleClass="cascading-vbox" stylesheets="@../../../moonTheme.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="513.0" styleClass="cascading-vbox" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="first_name" promptText="First Name" styleClass="text-field">
                      <VBox.margin>
@@ -98,7 +98,7 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#clearForm" styleClass="myButton" stylesheets="@../../../moonTheme.css" text="Clear">
+                  <Button mnemonicParsing="false" onAction="#clearForm" styleClass="myButton" text="Clear">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>

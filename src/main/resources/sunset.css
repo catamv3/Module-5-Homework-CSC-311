@@ -23,7 +23,7 @@
 }
 
 
-.myButton {
+.button {
 	-fx-background:linear-gradient(to bottom, #ffef87 5%, #ff7300 100%);
 	-fx-background-color:#ffef87;
 	-fx-border-radius:33px;
@@ -36,14 +36,25 @@
 	-fx-text-decoration:none;
 }
 
-.myButton:hover {
+.button:hover {
 	-fx-background:linear-gradient(to bottom, #ff7300 100%, #ffef87 100%);
 	-fx-background-color:#ff7300;
 }
-.myButton:active {
+.button:active {
 	-fx-position:relative;
 	-fx-top:1px;
 }
+
+.pane.left {
+    -fx-background-color:#ebcc34;
+    -fx-pref-width:150px;
+    -fx-pref-height:600px;
+}
+
+
+
+
+
 
 .vbox-with-gradient {
     -fx-background-color: linear-gradient(to bottom, orange, yellow);
@@ -64,18 +75,15 @@
 }
 
 
-.vbox {
+
+.pane.left.vbox {
     -fx-border-color: #2e8b57;
     -fx-border-width: 2px;
     -fx-padding: 10;
     -fx-spacing: 8;
 }
 
-.left_pane {
-    -fx-background-color:#ebcc34;
-    -fx-pref-width:150px;
-    -fx-pref-height:600px;
-}
+
 
 .bottom_pane {
     -fx-background-color:#ebcc34;
