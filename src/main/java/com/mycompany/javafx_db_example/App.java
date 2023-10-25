@@ -3,7 +3,9 @@ package com.mycompany.javafx_db_example;
 import com.mycompany.javafx_db_example.db.ConnDbOps;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -20,34 +22,53 @@ public class App extends Application {
 
     private static Scene scene;
     private static ConnDbOps cdbop;
-    private Stage primaryStage;
+    private static Stage primaryStage;
 
     public void start(Stage primaryStage) throws IOException {
-        this.primaryStage = primaryStage;
-        Pane root = new Pane(); // Use a concrete layout class like Pane
-        scene = new Scene(root, 640, 480);
-
-        primaryStage.setScene(scene);
-
-        this.primaryStage.setResizable(false);
-        showScene1();
-    }
-
-    private void showScene1() {
         try {
+            this.primaryStage = primaryStage;
             Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
             Scene splashScene = new Scene(root, 850, 560);
 
             // Load the primary FXML file here
-            Parent primaryRoot = FXMLLoader.load(getClass().getResource("primary.fxml"));
+            Parent loginRoot = FXMLLoader.load(getClass().getResource("loginScreen.fxml"));
 
             primaryStage.setScene(splashScene);
             primaryStage.show();
-            changeScene(primaryRoot);
+            changeScene(loginRoot);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    static class ThemeHandler{
+
+        static boolean isSun = true;
+        static Stage getStage(){return App.primaryStage;}
+        static void setStage(Stage s){App.primaryStage=s;}
+        static Scene getScene(){return App.scene;}
+        static void setScene(Scene s){App.scene=s;}
+
+        ThemeHandler(){
+            primaryStage = App.primaryStage;
+            scene = App.primaryStage.getScene();
+        }
+
+            static void switchTheme(ActionEvent e) {
+                if (isSun) {
+                    isSun = !isSun;
+
+                    Scene darkView = new Scene(scene.getRoot(), 850, 560);
+                    darkView.getStylesheets().clear();
+                    darkView.getStylesheets().add(ThemeHandler.class.getResource("moonTheme.css").toExternalForm());
+                    primaryStage.setScene(darkView);
+                    primaryStage.show();
+                }
+            }
+        }
+
+
+
 
     private void changeScene(Parent newRoot) {
         Scene currentScene = primaryStage.getScene();
@@ -58,6 +79,7 @@ public class App extends Application {
         fadeOut.setToValue(0);
         fadeOut.setOnFinished(e -> {
             Scene newScene = new Scene(newRoot, 850, 560);
+            newScene.getStylesheets().add("sunset.css");
             primaryStage.setScene(newScene);
         });
 
@@ -104,11 +126,8 @@ public class App extends Application {
                     break;
 
                 case 'i':
-                    System.out.print("Enter First Name: ");
-                    String fName = scan.next();
-                    System.out.print("Enter Last Name: ");
-                    String lName = scan.next();
-                    String name = fName + " " + lName;
+                    System.out.print("Enter Name:");
+                    String name = scan.nextLine();
                     System.out.print("Enter Email: ");
                     String email = scan.next();
                     System.out.print("Enter Phone: ");

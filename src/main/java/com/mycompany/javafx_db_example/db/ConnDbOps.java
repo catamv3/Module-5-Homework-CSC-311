@@ -129,7 +129,7 @@ public class ConnDbOps {
                 String email = resultSet.getString("email");
                 String phone = resultSet.getString("phone");
                 String address = resultSet.getString("address");
-                System.out.println("ID: " + id + ", Name: " + name + ", Email: " + email + ", Phone: " + phone + ", Address: " + address);
+                System.out.println("ID: " + id + "\tName: " + name + "\tEmail: " + email + "\tPhone: " + phone + "\tAddress: " + address);
             }
 
             preparedStatement.close();
@@ -137,6 +137,10 @@ public class ConnDbOps {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void removeUser(String name){
+
     }
 
     /**

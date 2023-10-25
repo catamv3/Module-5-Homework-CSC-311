@@ -2,8 +2,7 @@ package com.mycompany.javafx_db_example;
 
 public class Person {
     private Integer id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String email;
 
     private String address;
@@ -13,10 +12,9 @@ public class Person {
     }
 
 
-    public Person(Integer id, String firstName, String lastName, String email, String address, String phone) {
+    public Person(Integer id, String name, String email, String address, String phone) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name= name;
         this.email = email;
         this.address = address;
         this.phone = phone;
@@ -33,21 +31,12 @@ public class Person {
     }
 
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String n) {
+        this.name = n;
     }
 
     public String getEmail() {
