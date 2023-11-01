@@ -1,11 +1,7 @@
 package com.mycompany.javafx_db_example.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Scanner;
 
 /**
  * This file stores information to establish a database connection.
@@ -44,9 +40,9 @@ public class ConnDbOps {
             conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
             statement = conn.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS users ("
-                    + "id INT( 10 ) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
+                    + "id INT( 10 ) NOT NULL PRIMARY KEY AUTO_INCREMENT," //not null has to enter something
                     + "name VARCHAR(200) NOT NULL,"
-                    + "email VARCHAR(200) NOT NULL UNIQUE,"
+                    + "email VARCHAR(200) NOT NULL UNIQUE," //explain unique
                     + "phone VARCHAR(200),"
                     + "address VARCHAR(200),"
                     + "password VARCHAR(200) NOT NULL"
@@ -139,7 +135,27 @@ public class ConnDbOps {
         }
     }
 
-    public void removeUser(String name){
+    public void removeUser(String username){
+//con to dta base an check if un/ pw is correct
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "DELETE FROM users WHERE name= '" +username+"'";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.executeUpdate(sql);
+            int row = preparedStatement.executeUpdate();
+
+            if (row > 0) {
+                System.out.println("A new user was inserted successfully.");
+            }
+
+            preparedStatement.close();
+            conn.close();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -188,6 +204,9 @@ public class ConnDbOps {
             e.printStackTrace();
         }
     }
+
+
+
 
 
 }

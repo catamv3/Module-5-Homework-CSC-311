@@ -3,7 +3,9 @@ package com.mycompany.javafx_db_example;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,16 +46,18 @@ public class PrimaryController implements Initializable {
     @FXML
     private Parent root;
 
+    private boolean sunsetModeOn;
+
     @FXML
-    private static MenuItem viewItem;
+    private static MenuItem themeSwitcher;
     App.ThemeHandler viewHandler;
 
     private final ObservableList<Person> data =
             FXCollections.observableArrayList(
-                    new Person("stu", "Michael Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
-                    new Person("stu", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920"),
-                    new Person("1", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
-                    , new Person("2", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
+                    new Person("1stu", "Michael Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
+                    new Person("2stu", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920"),
+                    new Person("31", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
+                    , new Person("42", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
 
             );
 
@@ -70,15 +74,11 @@ public class PrimaryController implements Initializable {
         tv_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         tv.setItems(data);
         //viewHandler = new App.ThemeHandler();
+        sunsetModeOn = true;
     }
     
 
-    public void setStylesheet(String stylesheet) {
-        scene.getStylesheets().clear(); // Clear existing stylesheets
-        scene.getStylesheets().add(stylesheet); // Add the new stylesheet
-        stage.setScene(scene);
 
-    }
 
 
 
@@ -87,8 +87,23 @@ public class PrimaryController implements Initializable {
             do i need to declare a gui/controller for each theme i want to show?
      */
     @FXML
-    private void changeScene(ActionEvent event) throws IOException {
-        viewHandler.switchTheme(event);
+    private void changeScene(ActionEvent event) {
+        MenuItem menuItem = (MenuItem) event.getSource(); // Get the MenuItem
+        Scene scene = menuItem.getParentPopup().getOwnerWindow().getScene();
+        if(sunsetModeOn){
+            String cssPath = "moonTheme.css";
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add(cssPath);
+            sunsetModeOn = !sunsetModeOn;
+        } else {
+            String cssPath = "sunset.css";
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add(cssPath);
+            sunsetModeOn = !sunsetModeOn;
+        }
+
+        // Load and apply the new CSS stylesheet
+
     }
 
     @FXML
@@ -110,6 +125,19 @@ public class PrimaryController implements Initializable {
             }
 
         }
+
+//        public void checkUserName(String userName){
+//            boolean flag = true;
+//            do{
+//                String namePattern = "[a-z]*{2,25}";
+//                Pattern nPattern = Pattern.compile(namePattern);
+//
+//
+//            } while (!flag){
+//                System.out.println("valid data");
+//            }
+//
+//        }
 
     @FXML
     protected void clearForm(){
@@ -161,13 +189,7 @@ public class PrimaryController implements Initializable {
         @FXML
         protected void deleteRecord(){
             Person p = tv.getSelectionModel().getSelectedItem();
-            //System.out.println(p.toString());
-            int c = data.indexOf(p);
-            //tv.getSelectionModel().select(c);
-            data.remove(c);
-            tv.refresh();
-
-
+            tv.getItems().remove(p);
 
         }
 

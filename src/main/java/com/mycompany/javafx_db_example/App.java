@@ -67,6 +67,16 @@ public class App extends Application {
                     primaryStage.show();
                 }
             }
+
+        static void setRoot(String fxml) throws IOException {
+            scene.setRoot(loadFXML(fxml));
+        }
+
+        protected static Parent loadFXML(String fxml) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+            return fxmlLoader.load();
+        }
+
         }
 
 
@@ -88,14 +98,7 @@ public class App extends Application {
         fadeOut.play();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
 
     public static void main(String[] args) {
         cdbop = new ConnDbOps();
@@ -109,6 +112,7 @@ public class App extends Application {
             System.out.println("| To connect to DB,       press 'c' |");
             System.out.println("| To display all users,   press 'a' |");
             System.out.println("| To insert to the DB,    press 'i' |");
+            System.out.println("| To delete from the DB,  press 'd' |");
             System.out.println("| To query by name,       press 'q' |");
             System.out.println("| To exit,                press 'e' |");
             System.out.println("===================================");
@@ -128,6 +132,7 @@ public class App extends Application {
                     break;
 
                 case 'i':
+                    scan.nextLine();
                     System.out.print("Enter Name:");
                     String name = scan.nextLine();
                     System.out.print("Enter Email: ");
@@ -141,6 +146,13 @@ public class App extends Application {
                     String password = scan.next();
                     cdbop.insertUser(name, email, phone, address, password);
                     break;
+                case 'd':
+                    scan.nextLine();
+                    System.out.println("Enter the name of the user you want to delete");
+                    String uname = scan.next();
+                    cdbop.removeUser(uname);
+                    break;
+
                 case 'q':
                     System.out.print("Enter the name to query: ");
                     String queryName = scan.next();

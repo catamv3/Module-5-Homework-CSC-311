@@ -50,7 +50,10 @@
                 </MenuBar>
             </top>
             <left>
-                <VBox prefHeight="264.0" prefWidth="116.0" styleClass="lcascading-vbox" BorderPane.alignment="CENTER" />
+                <VBox prefHeight="264.0" prefWidth="116.0" styleClass="lcascading-vbox" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="switchBtn" mnemonicParsing="false" text="SWITCH" />
+               </children></VBox>
             </left>
             <bottom>
                 <HBox prefHeight="35.0" prefWidth="850.0" styleClass="bottom_pane" BorderPane.alignment="CENTER" />
