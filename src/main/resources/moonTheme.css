@@ -14,27 +14,10 @@ Purple (light to dark)
 
 */
 
-
-/*  Left pane   */
-
-/*
-top to bottom colors eggplant, light pale blue, dark purple, basement blue,
-*/
-.lcascading-vbox {
-    -fx-background-color: linear-gradient(#ab22ba,#5d2073, #3e3b6e,#5580ad,#1b344f);
-}
-
+/*  Top pane */
 .pane {
     -fx-background-color: linear-gradient(to bottom, #FFABAB, #FFC3A0, #FF677D, #D4A5A5, #DC3D3D);
-    -fx-pane-
 }
-
-/*  Bottom Pane */
-.bottom_pane {
-    -fx-background-color: #1b344f;
-}
-
-/*  Top pane */
 .menu-bar {
     /*  -fx-background-color: #FF9100; */
     -fx-background-color: #ab22ba; /* eggplant purple */
@@ -44,10 +27,44 @@ top to bottom colors eggplant, light pale blue, dark purple, basement blue,
 }
 
 
-.myButton {
+
+/*  Left pane   */
+.lcascading-vbox {
+    -fx-background-color: linear-gradient(#ab22ba,#5d2073, #3e3b6e,#5580ad,#1b344f);
+}
+.cascading-vbox {
+    -fx-background-color: linear-gradient(#ab22ba, #5d2073, #3e3b6e,#5580ad );
+}
+
+
+.bottom_pane {
+    -fx-background-color: linear-gradient(to right, #1b344f 0%, #5580ad 100%);
+}
+
+.text-field {
+    -fx-background-color: #c691cc; /* Light Orange */
+    -fx-prompt-text-fill: #452559; /* Dark Red Text Color */
+    -fx-text-fill: #452559; /* Dark Red Text Color */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #c970e6;
+}
+
+/* Table Column Header Text style */
+.table-view .column-header .label {
+    -fx-text-fill: #c412c4; /* Dark Red Text Color */
+}
+
+.table-row-cell{
+-fx-border-color:  #7094e6;
+-fx-table-cell-border-color:#1b4096;}
+
+
+
+
+.button {
     -fx-background-color: #5580ad;
-    -fx-border-radius: 33px;
-    -fx-border: 7px solid #5580ad;
     -fx-display: inline-block;
     -fx-cursor: pointer;
     -fx-color: #5580ad;
@@ -55,14 +72,13 @@ top to bottom colors eggplant, light pale blue, dark purple, basement blue,
     -fx-font-size: 15px;
     -fx-padding: 10px 32px;
     -fx-text-decoration: none;
-    -fx-text-shadow: 0px 1px 0px #fa9849;
 }
 
-.myButton:hover {
+.button:hover {
     -fx-background-color: #ab22ba;
 }
 
-.myButton:active {
+.button:active {
     -fx-position: relative;
     -fx-top: 1px;
 }

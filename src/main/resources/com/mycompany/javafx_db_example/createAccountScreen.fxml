@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="608.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@sunset.jpg" />
+            <Image url="@../../../../../../../311 Scrap Projects/311_Database/Database_311/src/main/resources/com/example/database_311/sunset.jpg" />
          </image>
       </ImageView>
       <Label layoutX="27.0" layoutY="241.0" prefHeight="38.0" prefWidth="255.0" text="Howdy Traveler" textFill="#d19b56">

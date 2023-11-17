@@ -52,7 +52,7 @@
             <left>
                 <VBox prefHeight="264.0" prefWidth="116.0" styleClass="lcascading-vbox" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="switchBtn" mnemonicParsing="false" text="SWITCH" />
+                  <Button fx:id="switchBtn" mnemonicParsing="false" onAction="#jaja" text="SWITCH" />
                </children></VBox>
             </left>
             <bottom>

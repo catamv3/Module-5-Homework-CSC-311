@@ -7,6 +7,6 @@ public class SecondaryController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        App.ThemeHandler.setRoot("primary");
+       // App.ThemeHandler.setRoot("primary");
     }
 }

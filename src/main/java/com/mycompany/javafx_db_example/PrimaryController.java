@@ -205,7 +205,24 @@ public class PrimaryController implements Initializable {
          * explore how to do authentication via firebase/azure
          */
 
+        @FXML
+        public void jaja(ActionEvent event) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAccountScreen.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 850, 560);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
 
+    @FXML
+    public void hehe(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginScreen.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 850, 560);
+        //scene.getStylesheets().add(getClass().getResource("sunset.css").toExternalForm());
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 

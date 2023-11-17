@@ -24,11 +24,15 @@ public class App extends Application {
     private static ConnDbOps cdbop;
     private static Stage primaryStage;
 
+
+
+
     public void start(Stage primaryStage) throws IOException {
         try {
             this.primaryStage = primaryStage;
             Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
             Scene splashScene = new Scene(root, 850, 560);
+            primaryStage.setResizable(false);
 
 
             // Load the primary FXML file here
@@ -55,29 +59,28 @@ public class App extends Application {
             scene = App.primaryStage.getScene();
         }
 
-            static void switchTheme(ActionEvent e) {
-                if (isSun) {
-                    isSun = !isSun;
+        static void switchTheme(ActionEvent e) {
+            if (isSun) {
+                isSun = !isSun;
 
-                    //Parent root = new Parent();
-                    Scene darkView = new Scene(scene.getRoot(), 850, 560);
-                    darkView.getStylesheets().clear();
-                    darkView.getStylesheets().add(ThemeHandler.class.getResource("moonTheme.css").toExternalForm());
-                    primaryStage.setScene(darkView);
-                    primaryStage.show();
-                }
+                //Parent root = new Parent();
+                Scene darkView = new Scene(scene.getRoot(), 850, 560);
+                darkView.getStylesheets().clear();
+                darkView.getStylesheets().add(ThemeHandler.class.getResource("moonTheme.css").toExternalForm());
+                primaryStage.setScene(darkView);
+                primaryStage.show();
             }
-
-        static void setRoot(String fxml) throws IOException {
-            scene.setRoot(loadFXML(fxml));
         }
+    }
 
-        protected static Parent loadFXML(String fxml) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-            return fxmlLoader.load();
-        }
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
 
-        }
+    protected static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
 
 
 
@@ -112,8 +115,10 @@ public class App extends Application {
             System.out.println("| To connect to DB,       press 'c' |");
             System.out.println("| To display all users,   press 'a' |");
             System.out.println("| To insert to the DB,    press 'i' |");
-            System.out.println("| To delete from the DB,  press 'd' |");
+            System.out.println("| To delete a user,       press 'd' |");
             System.out.println("| To query by name,       press 'q' |");
+            System.out.println("| To delete table,        press 'v' |");
+            System.out.println("| To edit a user,         press 'u' |");
             System.out.println("| To exit,                press 'e' |");
             System.out.println("===================================");
             System.out.print("Enter your choice: ");
@@ -129,10 +134,13 @@ public class App extends Application {
                     break;
                 case 'a':
                     cdbop.listAllUsers();
+                    //System.out.println("fix me!");
                     break;
 
                 case 'i':
                     scan.nextLine();
+                    System.out.print("Enter Id: ");
+                    String id = scan.nextLine();
                     System.out.print("Enter Name:");
                     String name = scan.nextLine();
                     System.out.print("Enter Email: ");
@@ -144,13 +152,14 @@ public class App extends Application {
                     String address = scan.nextLine();
                     System.out.print("Enter Password: ");
                     String password = scan.next();
-                    cdbop.insertUser(name, email, phone, address, password);
+                    cdbop.insertUser(id, name, email, phone, address, password);
                     break;
                 case 'd':
                     scan.nextLine();
                     System.out.println("Enter the name of the user you want to delete");
                     String uname = scan.next();
                     cdbop.removeUser(uname);
+                    scan.nextLine();
                     break;
 
                 case 'q':
@@ -160,7 +169,18 @@ public class App extends Application {
                     break;
                 case 'e':
                     System.out.println("Exiting...");
+                    System.exit(1);
                     break;
+                case 'v':
+                    System.out.println("clearing the table!");
+                    cdbop.deleteTable();
+                    break;
+                case 'u':
+                    System.out.print("Enter your FSC ID: ");
+                    scan.nextLine();
+                    String fscID = scan.nextLine();
+                    cdbop.editUser(fscID);
+                    scan.nextLine();
                 default:
                     System.out.println("Invalid option. Please try again.");
             }

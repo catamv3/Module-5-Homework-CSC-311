@@ -116,32 +116,7 @@ FF9100        ebcc34         E071BA
     -fx-text-fill: #DC3D3D; /* Dark Red Text Color */
 }
 
-.myBut:hover {
-	-fx-background:linear-gradient(to bottom, #ff7300 5%, #ffef87 100%);
-	-fx-background-color:#ff7300;
-}
-.myBut:active {
-	-fx-position:relative;
-	-fx-top:1px;
-}
 
-.myBut {
-	-fx-background:linear-gradient(to bottom, #ffef87 5%, #ff7300 100%);
-	-fx-background-color:#ffef87;
-	-fx-border-radius:33px;
-	-fx-display:inline-block;
-	-fx-cursor:pointer;
-	-fx-color:#ad10ad;
-	-fx-font-family:Arial;
-	-fx-font-size:15px;
-	-fx-padding:10px 32px;
-	-fx-text-decoration:none;
-}
-
-/* Left Pane style */
-.left_pane {
-    -fx-background-color: #FFC3A0; /* Light Orange */
-}
 
 /* TextFields with different background and text colors */
 .text-field {
