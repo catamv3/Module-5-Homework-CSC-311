@@ -126,18 +126,6 @@ public class PrimaryController implements Initializable {
 
         }
 
-//        public void checkUserName(String userName){
-//            boolean flag = true;
-//            do{
-//                String namePattern = "[a-z]*{2,25}";
-//                Pattern nPattern = Pattern.compile(namePattern);
-//
-//
-//            } while (!flag){
-//                System.out.println("valid data");
-//            }
-//
-//        }
 
     @FXML
     protected void clearForm(){

@@ -70,18 +70,18 @@ public class ConnDbOps {
      *
      * @param id- string arg for name.
      */
-    public void queryUserByName(String id) {
+    public void queryUserByName(String name) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String sql = "SELECT * FROM users WHERE id = ?";
+            String sql = "SELECT * FROM users WHERE name = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, id);
+            preparedStatement.setString(1, name);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                id = resultSet.getString("id");
-                String name = resultSet.getString("name");
+                String id = resultSet.getString("id");
+                name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 String phone = resultSet.getString("phone");
                 String address = resultSet.getString("address");
