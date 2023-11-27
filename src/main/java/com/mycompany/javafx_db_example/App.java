@@ -138,7 +138,7 @@ public class App extends Application {
                     break;
 
                 case 'i':
-                   // scan.nextLine();
+                    scan.nextLine();
                     System.out.print("Enter Id: ");
                     String id = scan.nextLine();
                     System.out.print("Enter Name:");
@@ -159,7 +159,6 @@ public class App extends Application {
                     System.out.println("Enter the name of the user you want to delete");
                     String uname = scan.next();
                     cdbop.removeUser(uname);
-                    //scan.nextLine();
                     break;
 
                 case 'q':

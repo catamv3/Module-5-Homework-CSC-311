@@ -118,7 +118,7 @@
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="deleteBtn" layoutX="20.0" layoutY="233.0" mnemonicParsing="false" onAction="#deleteRecord" onMouseClicked="#editRecord" text="Delete" textAlignment="CENTER">
+                        <Button fx:id="deleteBtn" layoutX="20.0" layoutY="233.0" mnemonicParsing="false" onAction="#deleteRecord" text="Delete" textAlignment="CENTER">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>

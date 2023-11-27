@@ -3,7 +3,7 @@ package com.mycompany.javafx_db_example;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLOutput;
+import java.sql.*;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -46,26 +46,50 @@ public class PrimaryController implements Initializable {
     @FXML
     private Parent root;
 
+    final String MYSQL_SERVER_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/";
+    final String DB_URL = "jdbc:mysql://michaelcac311.mariadb.database.azure.com/csc311_class";
+    final String USERNAME = "catamv3@michaelcac311";
+    final String PASSWORD = "Michael01!";
+
+
     private boolean sunsetModeOn;
 
     @FXML
     private static MenuItem themeSwitcher;
     App.ThemeHandler viewHandler;
 
-    private final ObservableList<Person> data =
-            FXCollections.observableArrayList(
-                    new Person("1stu", "Michael Catalanotti", "catamv3@farmingdale.edu", "Seaford","444-444-4444"),
-                    new Person("2stu", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920"),
-                    new Person("31", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
-                    , new Person("42", "Albert Einstein", "albert@hotmail.com", "Europe","070-963-1920")
-
-            );
+    private ObservableList<Person> data =
+            FXCollections.observableArrayList();
 
     //declare a controler CONSTRUCTOR that accpts a stage
     //declare a controller that accepts an observable lsit and a stage
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "SELECT * FROM users ";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String id = resultSet.getString("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String phone = resultSet.getString("phone");
+                String address = resultSet.getString("address");
+                Person p = new Person(id,name,email,address,phone);
+                data.add(p);
+            }
+
+            preparedStatement.close();
+            //conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         tv_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         tv_name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -115,16 +139,33 @@ public class PrimaryController implements Initializable {
         @FXML
         protected void addNewRecord() {
             try {
-                data.add(new Person(
-                        id.getText(),
-                        name.getText(),
-                        email.getText(), address.getText(),phone.getText()
-                ));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                        Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+                        String sql = "INSERT INTO users (id, name, email, phone, address, password) VALUES (?, ?, ?, ?, ?, ?)";
+                        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                        preparedStatement.setString(1, id.getText());
+                        preparedStatement.setString(2, name.getText());
+                        preparedStatement.setString(3, email.getText());
+                        preparedStatement.setString(4, phone.getText());
+                        preparedStatement.setString(5, address.getText());
+                        preparedStatement.setString(6, PASSWORD);
+                        Person p = new Person(id.getText(), name.getText(), email.getText(), phone.getText(), address.getText());
+                        data.add(p);
+                        int row = preparedStatement.executeUpdate();
 
-        }
+                        if (row > 0) {
+                            System.out.println("A new user was inserted successfully.");
+                        }
+
+                        tv.refresh();
+                        preparedStatement.close();
+                        conn.close();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+
+
 
 
     @FXML
@@ -171,14 +212,33 @@ public class PrimaryController implements Initializable {
             data.remove(c);
             data.add(c,p2);
             tv.getSelectionModel().select(c);
-
-
         }
         @FXML
         protected void deleteRecord(){
             Person p = tv.getSelectionModel().getSelectedItem();
-            tv.getItems().remove(p);
 
+
+            //data.remove(p);
+            if(p!= null){
+                try {
+                    Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+                    String sql = "DELETE FROM users WHERE id= \'" + p.getId() + "\'";
+                    PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                    preparedStatement.executeUpdate(sql);
+                    int row = preparedStatement.executeUpdate();
+                    tv.refresh();
+                    preparedStatement.close();
+                    conn.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                id.setText("");
+                name.setText("");
+                email.setText("");
+                address.setText("");
+                phone.setText("");
+               // tv.getItems().remove(p);
+            }
         }
 
         /**
