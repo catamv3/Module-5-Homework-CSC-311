@@ -149,7 +149,8 @@ public class PrimaryController implements Initializable {
                         preparedStatement.setString(5, address.getText());
                         preparedStatement.setString(6, PASSWORD);
                         Person p = new Person(id.getText(), name.getText(), email.getText(), phone.getText(), address.getText());
-                        data.add(p);
+                        //data.add(p);
+                        tv.getItems().add(p);
                         int row = preparedStatement.executeUpdate();
 
                         if (row > 0) {
@@ -226,6 +227,7 @@ public class PrimaryController implements Initializable {
                     PreparedStatement preparedStatement = conn.prepareStatement(sql);
                     preparedStatement.executeUpdate(sql);
                     int row = preparedStatement.executeUpdate();
+                    tv.getItems().remove(p);
                     tv.refresh();
                     preparedStatement.close();
                     conn.close();
