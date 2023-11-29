@@ -20,6 +20,9 @@ import javafx.util.Duration;
  */
 public class App extends Application {
 
+    // Add comment
+
+
     private static Scene scene;
     private static ConnDbOps cdbop;
     private static Stage primaryStage;
