@@ -1,4 +1,4 @@
-package com.mycompany.javafx_db_example;
+package com.mycompany.javafx_db_example.model;
 
 public class Person {
     private String id;

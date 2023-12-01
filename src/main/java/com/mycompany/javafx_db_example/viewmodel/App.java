@@ -1,14 +1,12 @@
-package com.mycompany.javafx_db_example;
+package com.mycompany.javafx_db_example.viewmodel;
 
 import com.mycompany.javafx_db_example.db.ConnDbOps;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Scanner;
@@ -29,6 +27,7 @@ public class App extends Application {
 
     public void start(Stage primaryStage) throws IOException {
         try {
+
             this.primaryStage = primaryStage;
             Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
             Scene splashScene = new Scene(root, 850, 560);

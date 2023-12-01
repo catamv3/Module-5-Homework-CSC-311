@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.PrimaryController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.viewmodel.PrimaryController">
     <children>
         <BorderPane prefHeight="566.0" prefWidth="850.0">
             <top>
@@ -125,7 +125,7 @@
                         </Button>
                         <ImageView fx:id="img_view" fitHeight="103.0" fitWidth="85.0" onMouseClicked="#showImage" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@profile.png" />
+                                <Image url="@../profile.png" />
                             </image>
                         </ImageView>
                     </children>

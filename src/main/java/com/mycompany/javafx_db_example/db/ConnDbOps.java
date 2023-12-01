@@ -2,7 +2,7 @@ package com.mycompany.javafx_db_example.db;
 
 import java.sql.*;
 import java.util.Scanner;
-import com.mycompany.javafx_db_example.Person;
+import com.mycompany.javafx_db_example.model.Person;
 
 /**
  * This file stores information to establish a database connection.

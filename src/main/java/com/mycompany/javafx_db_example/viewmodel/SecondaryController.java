@@ -1,4 +1,4 @@
-package com.mycompany.javafx_db_example;
+package com.mycompany.javafx_db_example.viewmodel;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

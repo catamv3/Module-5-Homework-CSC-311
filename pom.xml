@@ -65,7 +65,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>com.mycompany.javafx_db_example.App</mainClass>
+                    <mainClass>com.mycompany.javafx_db_example.viewmodel.App</mainClass>
                 </configuration>
                 <executions>
                     <execution>

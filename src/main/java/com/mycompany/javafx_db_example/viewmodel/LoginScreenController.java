@@ -1,4 +1,4 @@
-package com.mycompany.javafx_db_example;
+package com.mycompany.javafx_db_example.viewmodel;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

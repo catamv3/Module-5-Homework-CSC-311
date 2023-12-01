@@ -1,12 +1,12 @@
-package com.mycompany.javafx_db_example;
+package com.mycompany.javafx_db_example.viewmodel;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
+import com.mycompany.javafx_db_example.model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

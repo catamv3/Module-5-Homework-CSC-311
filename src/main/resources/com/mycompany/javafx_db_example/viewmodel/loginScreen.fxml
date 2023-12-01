@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.LoginScreenController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.viewmodel.LoginScreenController">
    <children>
       <ImageView fitHeight="536.0" fitWidth="753.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@algarve1.png" />
+            <Image url="@../algarve1.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="277.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0">
