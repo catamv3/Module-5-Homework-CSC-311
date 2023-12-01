@@ -30,7 +30,8 @@ public class App extends Application {
 
             this.primaryStage = primaryStage;
             Parent root = FXMLLoader.load(getClass().getResource("splash_screen.fxml"));
-            Scene splashScene = new Scene(root, 850, 560);
+            Scene splashScene = new Scene(root, 900, 515);
+
             primaryStage.setResizable(false);
 
 
@@ -63,7 +64,7 @@ public class App extends Application {
                 isSun = !isSun;
 
                 //Parent root = new Parent();
-                Scene darkView = new Scene(scene.getRoot(), 850, 560);
+                Scene darkView = new Scene(scene.getRoot(), 900, 515);
                 darkView.getStylesheets().clear();
                 darkView.getStylesheets().add(ThemeHandler.class.getResource("moonTheme.css").toExternalForm());
                 primaryStage.setScene(darkView);
@@ -92,8 +93,9 @@ public class App extends Application {
         fadeOut.setFromValue(1);
         fadeOut.setToValue(0);
         fadeOut.setOnFinished(e -> {
-            Scene newScene = new Scene(newRoot, 850, 560);
+            Scene newScene = new Scene(newRoot, 900, 515);
             newScene.getStylesheets().add("sunset.css");
+
             primaryStage.setScene(newScene);
         });
 

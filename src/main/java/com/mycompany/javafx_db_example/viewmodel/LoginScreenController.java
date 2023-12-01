@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,13 +19,17 @@ public class LoginScreenController {
     @FXML
     private TextField uNameTxtfld, pwTxtfld;
 
+    @FXML
+    private ImageView imageView;
+
 
     @FXML
     public void loginClicked(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primary.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 850, 560);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 515);
         scene.getStylesheets().add("sunset.css");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
@@ -32,7 +37,7 @@ public class LoginScreenController {
     @FXML
     public void createAccountClicked(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAccountScreen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 850, 560);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 515);
         scene.getStylesheets().add("sunset.css");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

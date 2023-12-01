@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
@@ -30,6 +31,9 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button createAccountButton;
     private boolean flag;
+
+    @FXML
+    private ImageView imageView;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fscidField.setOnKeyPressed(e ->{
@@ -260,7 +264,7 @@ public class CreateAccountController implements Initializable {
                             PrimaryController controller = fxmlLoader.getController();
                             //controller.setUserInfo(fscidField.getText(), nameField.getText(), emailField.getText(), majorField.getText(), passwordField.getText());
 
-                            Scene scene = new Scene(root, 850, 560);
+                            Scene scene = new Scene(root, 900, 515);
                             Stage stage = (Stage) createAccountButton.getScene().getWindow();
                             scene.getStylesheets().add("sunset.css");
                             stage.setScene(scene);
@@ -280,7 +284,7 @@ public class CreateAccountController implements Initializable {
                     passwordField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     passwordField.setVisible(true);
                     passwordField.requestFocus();
-                    passwordField.setText(passwordField.getText() + " is not valid passsword");
+                    passwordLabel.setText(passwordField.getText() + " is not valid passsword");
                     passwordField.setEditable(true);
                     flag = true;
                 }

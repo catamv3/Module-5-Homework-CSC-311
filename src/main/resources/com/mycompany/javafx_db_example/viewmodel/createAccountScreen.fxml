@@ -12,16 +12,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.viewmodel.CreateAccountController">
+<AnchorPane prefHeight="515.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.viewmodel.CreateAccountController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="608.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageView" fitHeight="515.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../algarve1.png" />
+            <Image url="@../sunset.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="27.0" layoutY="241.0" prefHeight="38.0" prefWidth="255.0" text="Howdy Traveler" textFill="#d19b56">
+      <Label layoutX="22.0" layoutY="422.0" prefHeight="50.0" prefWidth="316.0" text="Howdy Traveler" textFill="#d19b56">
          <font>
-            <Font name="Bauhaus 93" size="33.0" />
+            <Font name="Bauhaus 93" size="44.0" />
          </font></Label>
       <HBox layoutX="13.0" layoutY="40.0" prefHeight="108.0" prefWidth="571.0">
          <children>
@@ -98,12 +98,9 @@
                   </Label>
                </children>
             </VBox>
-            <Pane prefHeight="108.0" prefWidth="183.0">
-               <children>
-                  <Button fx:id="createAccountButton" layoutX="37.0" layoutY="41.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="Create Acocunt" />
-               </children>
-            </Pane>
+            <Pane prefHeight="108.0" prefWidth="183.0" />
          </children>
       </HBox>
+      <Button fx:id="createAccountButton" layoutX="468.0" layoutY="427.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="127.0" text="Create Account" />
    </children>
 </AnchorPane>
