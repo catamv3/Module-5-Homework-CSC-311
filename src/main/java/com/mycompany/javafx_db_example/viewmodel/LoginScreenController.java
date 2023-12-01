@@ -27,6 +27,8 @@ public class LoginScreenController implements Initializable {
 
 
 
+
+
     public void loginClicked(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primary.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 515);

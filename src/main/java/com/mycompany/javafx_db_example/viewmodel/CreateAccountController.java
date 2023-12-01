@@ -34,8 +34,14 @@ public class CreateAccountController implements Initializable {
 
     @FXML
     private ImageView imageView;
+
+    @FXML
+    private Label welcomeLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        createAccountButton.setOpacity(0.0);
+        welcomeLabel.setOpacity(1.0);
         fscidField.setOnKeyPressed(e ->{
             if (e.getCode() != KeyCode.TAB && flag) {
                 fscidField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
@@ -239,7 +245,7 @@ public class CreateAccountController implements Initializable {
             } else {
                 //bday format
                 if (majorField.getText().toUpperCase().matches("[A-Z]{3}")) {
-                    majorField.setEditable(true);
+                    passwordField.setEditable(true);
                     majorField.setBorder(null);
                 } else
                 //if there is an error with the users data, change the appearance of the box
@@ -266,6 +272,7 @@ public class CreateAccountController implements Initializable {
                 passwordField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
                 passwordLabel.setText("");
 
+
                 flag = false;
             }
         });
@@ -286,10 +293,14 @@ public class CreateAccountController implements Initializable {
             } else {
                 //zip format "117-XX"
                 if (passwordField.getText().matches(("^(?=.*[A-Z])(?=.*\\d.*\\d)[A-Za-z\\d]{5,10}$"))) {
+                    //passwordField.setEditable(true);
+                    passwordField.setBorder(null);
+                    welcomeLabel.setOpacity(0.0);
+                    createAccountButton.setOpacity(1.0);
+
                     createAccountButton.setOnAction(event -> {
 
                         try {
-
                             db = new ConnDbOps();
                             db.insertUser(fscidField.getText(),nameField.getText(),emailField.getText(),departmentField.getText(), majorField.getText(),passwordField.getText());
 

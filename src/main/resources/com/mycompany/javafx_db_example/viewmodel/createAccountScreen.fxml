@@ -19,7 +19,7 @@
             <Image url="@../sunset.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="22.0" layoutY="422.0" prefHeight="50.0" prefWidth="316.0" text="Howdy Traveler" textFill="#d19b56">
+      <Label fx:id="welcomeLabel" layoutX="22.0" layoutY="422.0" prefHeight="50.0" prefWidth="316.0" text="Howdy Traveler" textFill="#ba854c">
          <font>
             <Font name="Bauhaus 93" size="44.0" />
          </font></Label>
@@ -114,6 +114,9 @@
             <Pane prefHeight="108.0" prefWidth="183.0" />
          </children>
       </HBox>
-      <Button fx:id="createAccountButton" layoutX="468.0" layoutY="427.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="127.0" text="Create Account" />
+      <Button fx:id="createAccountButton" layoutX="477.0" layoutY="427.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="191.0" style="-fx-background: 0;" text="Create Account" textFill="#4d827f">
+         <font>
+            <Font name="Bauhaus 93" size="20.0" />
+         </font></Button>
    </children>
 </AnchorPane>
