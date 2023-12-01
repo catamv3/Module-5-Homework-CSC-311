@@ -34,7 +34,7 @@ public class LoginScreenController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 900, 515);
         scene.getStylesheets().add("sunset.css");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
     }

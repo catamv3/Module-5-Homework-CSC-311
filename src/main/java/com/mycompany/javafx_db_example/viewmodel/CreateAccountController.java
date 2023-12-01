@@ -314,6 +314,7 @@ public class CreateAccountController implements Initializable {
                             Scene scene = new Scene(root, 900, 515);
                             Stage stage = (Stage) createAccountButton.getScene().getWindow();
                             scene.getStylesheets().add("sunset.css");
+                            stage.setResizable(true);
                             stage.setScene(scene);
                             stage.show();
                         } catch (IOException e) {
