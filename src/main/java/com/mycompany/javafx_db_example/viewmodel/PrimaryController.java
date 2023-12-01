@@ -7,6 +7,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import com.mycompany.javafx_db_example.model.Person;
+import com.mysql.cj.protocol.a.DebugBufferingPacketReader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,11 +32,11 @@ import javafx.stage.Stage;
 public class PrimaryController implements Initializable {
 
     @FXML
-    TextField id, name, email, address, phone;
+    TextField id, name, email, department, major, password;
     @FXML
     private TableView<Person> tv;
     @FXML
-    private TableColumn<Person, String> tv_id, tv_name, tv_email, tv_address, tv_phone;
+    private TableColumn<Person, String> tv_fscid, tv_name, tv_email,tv_department,  tv_major;
     @FXML
     private ImageView img_view;
 
@@ -79,9 +80,10 @@ public class PrimaryController implements Initializable {
                 String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
-                String phone = resultSet.getString("phone");
-                String address = resultSet.getString("address");
-                Person p = new Person(id,name,email,address,phone);
+                String department = resultSet.getString("department");
+                String major = resultSet.getString("major");
+                String password = resultSet.getString("password");
+                Person p = new Person(id,name,email, department, major,password);
                 data.add(p);
             }
 
@@ -91,11 +93,11 @@ public class PrimaryController implements Initializable {
             e.printStackTrace();
         }
 
-        tv_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tv_fscid.setCellValueFactory(new PropertyValueFactory<>("id"));
         tv_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         tv_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        tv_address.setCellValueFactory(new PropertyValueFactory<>("address"));
-        tv_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        tv_major.setCellValueFactory(new PropertyValueFactory<>("major"));
+        tv_department.setCellValueFactory(new PropertyValueFactory<>("department"));
         tv.setItems(data);
         //viewHandler = new App.ThemeHandler();
         sunsetModeOn = true;
@@ -140,15 +142,15 @@ public class PrimaryController implements Initializable {
         protected void addNewRecord() {
             try {
                         Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-                        String sql = "INSERT INTO users (id, name, email, phone, address, password) VALUES (?, ?, ?, ?, ?, ?)";
+                        String sql = "INSERT INTO users (id, name, email, department, major, password) VALUES (?, ?, ?, ?, ?, ?)";
                         PreparedStatement preparedStatement = conn.prepareStatement(sql);
                         preparedStatement.setString(1, id.getText());
                         preparedStatement.setString(2, name.getText());
                         preparedStatement.setString(3, email.getText());
-                        preparedStatement.setString(4, phone.getText());
-                        preparedStatement.setString(5, address.getText());
-                        preparedStatement.setString(6, PASSWORD);
-                        Person p = new Person(id.getText(), name.getText(), email.getText(), phone.getText(), address.getText());
+                        preparedStatement.setString(4, department.getText());
+                        preparedStatement.setString(5, major.getText());
+                        preparedStatement.setString(6, password.getText());
+                        Person p = new Person(id.getText(), name.getText(), email.getText(), department.getText(), major.getText(), password.getText());
                         //data.add(p);
                         tv.getItems().add(p);
                         int row = preparedStatement.executeUpdate();
@@ -175,8 +177,9 @@ public class PrimaryController implements Initializable {
         name.setText(""); //this works
         //last_name.clear(); //this works also
         email.setText("");
-        address.setText("");
-        phone.setText("");
+        department.setText("");
+        major.setText("");
+        password.setText("");
     }
 
     /*
@@ -189,8 +192,9 @@ public class PrimaryController implements Initializable {
             id.setText(p.getId());
             name.setText(p.getName());
             email.setText(p.getEmail());
-            address.setText(p.getAddress());
-            phone.setText(p.getPhone());
+            department.setText(p.getDepartment());
+            major.setText(p.getMajor());
+            password.setText(p.getPassword());
         }
 
 
@@ -207,8 +211,8 @@ public class PrimaryController implements Initializable {
             p2.setId(id.getText());
             p2.setName(name.getText());
             p2.setEmail(email.getText());
-            p2.setAddress(address.getText());
-            p2.setPhone(phone.getText());
+            p2.setMajor(major.getText());
+            p2.setPassword(password.getText());
 
             data.remove(c);
             data.add(c,p2);
@@ -237,8 +241,9 @@ public class PrimaryController implements Initializable {
                 id.setText("");
                 name.setText("");
                 email.setText("");
-                address.setText("");
-                phone.setText("");
+                department.setText("");
+                major.setText("");
+                password.setText("");
                // tv.getItems().remove(p);
             }
         }

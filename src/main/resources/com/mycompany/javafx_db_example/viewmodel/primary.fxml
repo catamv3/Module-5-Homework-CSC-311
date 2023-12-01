@@ -61,11 +61,11 @@
             <center>
                 <TableView fx:id="tv" editable="true" onMouseClicked="#selectedItemTV" prefHeight="467.0" prefWidth="525.0" BorderPane.alignment="CENTER">
                     <columns>
-                        <TableColumn fx:id="tv_id" styleClass="column-header-background" text="ID" />
+                        <TableColumn fx:id="tv_fscid" styleClass="column-header-background" text="FSC ID" />
                         <TableColumn fx:id="tv_name" styleClass="column-header-background" text="Name" />
                         <TableColumn fx:id="tv_email" styleClass="column-header-background" text="Email" />
-                        <TableColumn fx:id="tv_address" styleClass="column-header-background" text="Address" />
-                        <TableColumn fx:id="tv_phone" styleClass="column-header-background" text="Phone" />
+                        <TableColumn fx:id="tv_department" styleClass="column-header-background" text="Department" />
+                        <TableColumn fx:id="tv_major" styleClass="column-header-background" text="Major" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -75,7 +75,7 @@
             <right>
                 <VBox prefHeight="513.0" styleClass="cascading-vbox" BorderPane.alignment="CENTER">
                     <children>
-                  <TextField fx:id="id" layoutX="20.0" layoutY="15.0" promptText="Id">
+                  <TextField fx:id="id" layoutX="20.0" layoutY="15.0" promptText="FSC ID">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -93,16 +93,21 @@
                                 <Insets left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
                         </TextField>
-                        <TextField fx:id="address" layoutX="20.0" layoutY="77.0" prefHeight="25.0" prefWidth="174.0" promptText="Address">
+                        <TextField fx:id="department" layoutX="20.0" layoutY="77.0" prefHeight="25.0" prefWidth="174.0" promptText="Department">
                             <VBox.margin>
                                 <Insets left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
                         </TextField>
-                        <TextField fx:id="phone" promptText="Phone">
+                        <TextField fx:id="major" promptText="Major">
                             <VBox.margin>
                                 <Insets left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
                         </TextField>
+                  <TextField fx:id="password" layoutX="20.0" layoutY="138.0" promptText="Password">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
                         <Button mnemonicParsing="false" onAction="#clearForm" text="Clear">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

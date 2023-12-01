@@ -146,14 +146,14 @@ public class App extends Application {
                     String name = scan.nextLine();
                     System.out.print("Enter Email: ");
                     String email = scan.next();
-                    System.out.print("Enter Phone: ");
-                    String phone = scan.next();
+                    System.out.print("Enter Dept: ");
+                    String dept = scan.next();
                     scan.nextLine();
-                    System.out.print("Enter Address: ");
-                    String address = scan.nextLine();
+                    System.out.print("Enter Major: ");
+                    String major = scan.nextLine();
                     System.out.print("Enter Password: ");
                     String password = scan.next();
-                    cdbop.insertUser(id, name, email, phone, address, password);
+                    cdbop.insertUser(id, name, email, dept, major, password);
                     break;
                 case 'd':
                     scan.nextLine();
@@ -181,7 +181,6 @@ public class App extends Application {
                     scan.nextLine();
                     String fscID = scan.nextLine();
                     cdbop.editUser(fscID);
-                    scan.nextLine();
                 default:
                     System.out.println("Invalid option. Please try again.");
             }

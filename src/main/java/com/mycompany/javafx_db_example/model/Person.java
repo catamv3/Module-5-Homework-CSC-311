@@ -4,19 +4,30 @@ public class Person {
     private String id;
     private String name;
     private String email;
-    private String address;
-    private String phone;
+    private String major;
+    private String department;
+    private String password;
 
     public Person() {
     }
 
 
-    public Person(String id, String name, String email, String address, String phone) {
+    public Person(String id, String name, String email, String dept,String major, String password) {
         this.id = id;
         this.name= name;
         this.email = email;
-        this.address = address;
-        this.phone = phone;
+        this.department= dept;
+        this.major = major;
+        this.password = password;
+    }
+
+    public Person(String id, String pass){
+        id=id;
+        name = "";
+        email = "";
+        department = "";
+        major = "";
+        password = pass;
     }
 
     // fix the getters and setters to match the fields
@@ -46,19 +57,28 @@ public class Person {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getMajor() {
+        return major;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+
+    public void setMajor(String major) {
+        this.major = major;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
