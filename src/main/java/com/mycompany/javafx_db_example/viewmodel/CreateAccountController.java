@@ -23,10 +23,10 @@ public class CreateAccountController implements Initializable {
 
     private ConnDbOps db;
     @FXML
-    private Label fscidLabel, nameLabel, emailLabel, majorLabel, passwordLabel;
+    private Label fscidLabel, nameLabel, emailLabel, departmentLabel, majorLabel, passwordLabel;
 
     @FXML
-    private TextField fscidField, nameField, emailField, majorField, passwordField;
+    private TextField fscidField, nameField, emailField, departmentField, majorField, passwordField;
 
     @FXML
     private Button createAccountButton;
@@ -63,6 +63,7 @@ public class CreateAccountController implements Initializable {
                     fscidLabel.setText(fscidField.getText() + " is not valid FSC ID");
                     nameField.setEditable(false);
                     emailField.setEditable(false);
+                    departmentField.setEditable(false);
                     majorField.setEditable(false);
                     passwordField.setEditable(false);
                     flag = true;
@@ -120,6 +121,7 @@ public class CreateAccountController implements Initializable {
                     nameField.requestFocus();
                     nameLabel.setText(nameField.getText() + " is not valid name");
                     emailField.setEditable(false);
+                    departmentField.setEditable(false);
                     majorField.setEditable(false);
                     passwordField.setEditable(false);
                     flag = true;
@@ -156,7 +158,7 @@ public class CreateAccountController implements Initializable {
                 System.out.println("Email text is focused");
             } else {
                 if (emailField.getText().matches("[a-z][a-z0-9]{2,6}@farmingdale.edu")) {
-                    majorField.setEditable(true);
+                    departmentField.setEditable(true);
                     emailField.setBorder(null);
                 } else
                 //if there is an error with the users data, change the appearance of the box
@@ -167,6 +169,41 @@ public class CreateAccountController implements Initializable {
                     emailField.setVisible(true);
                     emailField.requestFocus();
                     emailLabel.setText(emailField.getText() + " is not valid farmingdale email");
+                    departmentField.setEditable(false);
+                    majorField.setEditable(false);
+                    passwordField.setEditable(false);
+                    flag = true;
+                }
+
+            }
+        });
+
+        departmentField.setOnKeyPressed(event -> {
+
+            if (event.getCode() != KeyCode.TAB && flag) {
+                departmentField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
+                departmentLabel.setText("");
+
+                flag = false;
+            }
+
+        });
+        departmentField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                System.out.println("Email text is focused");
+            } else {
+                if (departmentField.getText().toUpperCase().matches("[A-Z]{3}")) {
+                    majorField.setEditable(true);
+                    departmentField.setBorder(null);
+                } else
+                //if there is an error with the users data, change the appearance of the box
+                //show on the screen that the user's email is invalid
+                //update flag
+                {
+                    departmentField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    departmentField.setVisible(true);
+                    departmentField.requestFocus();
+                    departmentLabel.setText(departmentField.getText() + " is not valid farmingdale email");
                     majorField.setEditable(false);
                     passwordField.setEditable(false);
                     flag = true;
@@ -187,7 +224,6 @@ public class CreateAccountController implements Initializable {
                 flag = false;
             }
         });
-
 
         /**
          * this method adds a listener to the bdayField element to validate the user input.
@@ -255,7 +291,7 @@ public class CreateAccountController implements Initializable {
                         try {
 
                             db = new ConnDbOps();
-                            db.insertUser(fscidField.getText(),nameField.getText(),emailField.getText(),majorField.getText(),passwordField.getText(),passwordField.getText());
+                            db.insertUser(fscidField.getText(),nameField.getText(),emailField.getText(),departmentField.getText(), majorField.getText(),passwordField.getText());
 
                             //loading the fxml file
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primary.fxml"));
