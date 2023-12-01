@@ -129,6 +129,12 @@ FF9100        ebcc34         E071BA
     -fx-stroke: #D4A5A5; /* Light Purple */
     -fx-stroke-width: 2;
 }
+.reg_button{
+-fx-text-fill: #4d827f;
+-fx-font-family: 'Bauhaus 93';
+-fx-fill: 0;
+
+}
 
 /* Bottom HBox style */
 .bottom_pane {

@@ -246,6 +246,26 @@ public class ConnDbOps {
         }
     }
 
+    public void clearTable(){
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "DROP TABLE users";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.executeUpdate(sql);
+            preparedStatement.close();
+            conn.close();
+
+            Connection konn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            sql = "DROP TABLE passwords";
+            preparedStatement = konn.prepareStatement(sql);
+            preparedStatement.executeUpdate(sql);
+            preparedStatement.close();
+            konn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void deleteTable(){
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);

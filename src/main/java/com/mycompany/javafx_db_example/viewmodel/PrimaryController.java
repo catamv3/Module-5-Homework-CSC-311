@@ -161,6 +161,13 @@ public class PrimaryController implements Initializable {
 
                         tv.refresh();
                         preparedStatement.close();
+
+                sql = "INSERT INTO passwords (id, password) VALUES (?, ?)";
+                preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.setString(1, id.getText());
+                preparedStatement.setString(2, password.getText());
+                preparedStatement.close();
+
                         conn.close();
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
@@ -234,16 +241,23 @@ public class PrimaryController implements Initializable {
                     tv.getItems().remove(p);
                     tv.refresh();
                     preparedStatement.close();
+
+                    sql = "DELETE FROM passwords WHERE id= \'" + p.getId() + "\'";
+                    preparedStatement = conn.prepareStatement(sql);
+                    preparedStatement.executeUpdate(sql);
+                    preparedStatement.close();
+
                     conn.close();
+                    id.setText("");
+                    name.setText("");
+                    email.setText("");
+                    department.setText("");
+                    major.setText("");
+                    password.setText("");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
-                id.setText("");
-                name.setText("");
-                email.setText("");
-                department.setText("");
-                major.setText("");
-                password.setText("");
+
                // tv.getItems().remove(p);
             }
         }

@@ -119,6 +119,7 @@ public class App extends Application {
             System.out.println("| To delete a user,       press 'd' |");
             System.out.println("| To query by name,       press 'q' |");
             System.out.println("| To delete table,        press 'v' |");
+            System.out.println("| To CLEAR table,         press 'w' |");
             System.out.println("| To edit a user,         press 'u' |");
             System.out.println("| To exit,                press 'e' |");
             System.out.println("===================================");
@@ -173,8 +174,12 @@ public class App extends Application {
                     System.exit(1);
                     break;
                 case 'v':
-                    System.out.println("clearing the table!");
+                    System.out.println("DELETING THE ENTIRE table!");
                     cdbop.deleteTable();
+                    break;
+                case 'w':
+                    System.out.println("Emptying contents of table");
+                    cdbop.clearTable();
                     break;
                 case 'u':
                     System.out.print("Enter your FSC ID: ");
