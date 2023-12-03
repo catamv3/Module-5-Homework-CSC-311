@@ -48,7 +48,6 @@ public class CreateAccountController implements Initializable {
                 fscidField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
 
                 fscidLabel.setText("");
-                instructonLabel.setText("Enter your FSC ID: ");
                 flag = false;
             }
         } );
@@ -59,6 +58,7 @@ public class CreateAccountController implements Initializable {
                 instructonLabel.setText("Enter your FSC ID");
             } else {
                 if (fscidField.getText().matches("[a-z][a-z0-9]{2,6}")) {
+                    instructonLabel.setText("");
                     nameField.setEditable(true);
                     fscidField.setBorder(null);
                 } else
@@ -70,7 +70,7 @@ public class CreateAccountController implements Initializable {
                     fscidField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     fscidField.setVisible(true);
                     fscidField.requestFocus();
-                    fscidLabel.setText(fscidField.getText() + " is not valid FSC ID");
+                    instructonLabel.setText(fscidField.getText() + "\n is not valid FSC ID");
                     nameField.setEditable(false);
                     emailField.setEditable(false);
                     departmentField.setEditable(false);
@@ -117,8 +117,10 @@ public class CreateAccountController implements Initializable {
         nameField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("Name text is focused");
+                instructonLabel.setText("Enter your full name");
             } else {
                 if (nameField.getText().matches("[A-Za-z]{2,12}[\\s][A-Za-z]{2,13}")) {
+                    instructonLabel.setText("");
                     emailField.setEditable(true);
                     nameField.setBorder(null);
                 } else
@@ -129,7 +131,7 @@ public class CreateAccountController implements Initializable {
                     nameField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     nameField.setVisible(true);
                     nameField.requestFocus();
-                    nameLabel.setText(nameField.getText() + " is not valid name");
+                    instructonLabel.setText(nameField.getText() + " \nis not a valid name");
                     emailField.setEditable(false);
                     departmentField.setEditable(false);
                     majorField.setEditable(false);
@@ -166,8 +168,10 @@ public class CreateAccountController implements Initializable {
         emailField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("Email text is focused");
+                instructonLabel.setText("Enter your FSC \nEmail address");
             } else {
                 if (emailField.getText().matches("[a-z][a-z0-9]{2,6}@farmingdale.edu")) {
+                    instructonLabel.setText("");
                     departmentField.setEditable(true);
                     emailField.setBorder(null);
                 } else
@@ -178,7 +182,7 @@ public class CreateAccountController implements Initializable {
                     emailField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     emailField.setVisible(true);
                     emailField.requestFocus();
-                    emailLabel.setText(emailField.getText() + " is not valid farmingdale email");
+                    instructonLabel.setText(emailField.getText() + "\nis not valid \nfarmingdale email");
                     departmentField.setEditable(false);
                     majorField.setEditable(false);
                     passwordField.setEditable(false);
@@ -201,8 +205,10 @@ public class CreateAccountController implements Initializable {
         departmentField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("Email text is focused");
+                instructonLabel.setText("Enter your department");
             } else {
                 if (departmentField.getText().toUpperCase().matches("[A-Z]{3}")) {
+                    instructonLabel.setText("");
                     majorField.setEditable(true);
                     departmentField.setBorder(null);
                 } else
@@ -213,7 +219,7 @@ public class CreateAccountController implements Initializable {
                     departmentField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     departmentField.setVisible(true);
                     departmentField.requestFocus();
-                    departmentLabel.setText(departmentField.getText() + " is not valid farmingdale email");
+                    instructonLabel.setText("Enter your Department\n(Valid input: \nthree letters\n\tex: \'BCS\' or \'LAS\' ");
                     majorField.setEditable(false);
                     passwordField.setEditable(false);
                     flag = true;
@@ -246,9 +252,11 @@ public class CreateAccountController implements Initializable {
         majorField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("major field is focused");
+                instructonLabel.setText("Enter your Major\n(Valid input: three letters\n\tex: \'CSC\' or \'BIO\' ");
             } else {
                 //bday format
                 if (majorField.getText().toUpperCase().matches("[A-Z]{3}")) {
+                    instructonLabel.setText("");
                     passwordField.setEditable(true);
                     majorField.setBorder(null);
                 } else
@@ -259,7 +267,7 @@ public class CreateAccountController implements Initializable {
                     majorField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     majorField.setVisible(true);
                     majorField.requestFocus();
-                    majorLabel.setText(majorField.getText() + " is not valid major");
+                    instructonLabel.setText(majorField.getText() + " is not valid major");
                     passwordField.setEditable(false);
                     flag = true;
                 }
@@ -294,10 +302,12 @@ public class CreateAccountController implements Initializable {
         passwordField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("password field is focused");
+                instructonLabel.setText("Enter your password");
             } else {
                 //zip format "117-XX"
                 if (passwordField.getText().matches(("^(?=.*[A-Z])(?=.*\\d.*\\d)[A-Za-z\\d]{5,10}$"))) {
                     //passwordField.setEditable(true);
+                    instructonLabel.setText("");
                     passwordField.setBorder(null);
                     welcomeLabel.setOpacity(0.0);
                     createAccountButton.setOpacity(1.0);
