@@ -31,7 +31,7 @@ public class LoginScreenController implements Initializable {
 
     public void loginClicked(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primary.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 900, 515);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 575);
         scene.getStylesheets().add("sunset.css");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(true);
@@ -42,7 +42,7 @@ public class LoginScreenController implements Initializable {
     @FXML
     public void createAccountClicked(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAccountScreen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 900, 515);
+        Scene scene = new Scene(fxmlLoader.load(), 685, 515);
         scene.getStylesheets().add("sunset.css");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

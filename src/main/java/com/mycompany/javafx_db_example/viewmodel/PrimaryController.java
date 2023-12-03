@@ -77,6 +77,7 @@ public class PrimaryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         addButton.setDisable(true);
         clearButton.setDisable(true);
         deleteButton.setDisable(true);

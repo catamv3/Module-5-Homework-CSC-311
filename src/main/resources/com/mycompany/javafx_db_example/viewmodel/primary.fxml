@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.viewmodel.PrimaryController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.javafx_db_example.viewmodel.PrimaryController">
     <children>
-        <BorderPane>
+        <BorderPane prefHeight="526.0" prefWidth="900.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <MenuBar BorderPane.alignment="CENTER">
                     <menus>
@@ -135,9 +135,9 @@
                 </VBox>
             </right>
          <bottom>
-            <AnchorPane styleClass="bottom_pane" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="111.0" prefWidth="900.0" styleClass="bottom_pane" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="outputLabel" layoutX="106.0" layoutY="4.0" prefHeight="17.0" prefWidth="444.0" textFill="#35a8dd">
+                  <Label fx:id="outputLabel" layoutX="-13.0" layoutY="4.0" prefHeight="47.0" prefWidth="719.0" textFill="#35a8dd">
                      <font>
                         <Font size="32.0" />
                      </font>

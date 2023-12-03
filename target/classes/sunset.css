@@ -136,6 +136,11 @@ FF9100        ebcc34         E071BA
 
 }
 
+.instruction_label{
+-fx-font-family: 'Bauhaus 93';
+-fx-text-fill: #d8de57;
+}
+
 /* Bottom HBox style */
 .bottom_pane {
     -fx-background-color: #E071BA; /* Pink */

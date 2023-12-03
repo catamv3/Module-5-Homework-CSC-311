@@ -36,17 +36,19 @@ public class CreateAccountController implements Initializable {
     private ImageView imageView;
 
     @FXML
-    private Label welcomeLabel;
+    private Label welcomeLabel, instructonLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createAccountButton.setOpacity(0.0);
         welcomeLabel.setOpacity(1.0);
+        instructonLabel.setOpacity(1.0);
         fscidField.setOnKeyPressed(e ->{
             if (e.getCode() != KeyCode.TAB && flag) {
                 fscidField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
-                fscidLabel.setText("");
 
+                fscidLabel.setText("");
+                instructonLabel.setText("Enter your FSC ID: ");
                 flag = false;
             }
         } );
@@ -54,6 +56,7 @@ public class CreateAccountController implements Initializable {
         fscidField.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
                 System.out.println("FSCID text is focused");
+                instructonLabel.setText("Enter your FSC ID");
             } else {
                 if (fscidField.getText().matches("[a-z][a-z0-9]{2,6}")) {
                     nameField.setEditable(true);
@@ -63,6 +66,7 @@ public class CreateAccountController implements Initializable {
                 //show on the screen that the user's name is invalid
                 //update flag
                 {
+                    instructonLabel.setText("");
                     fscidField.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
                     fscidField.setVisible(true);
                     fscidField.requestFocus();
