@@ -204,7 +204,7 @@ public class PrimaryController implements Initializable {
             if (newValue) {
                 System.out.println("Email text is focused");
             } else {
-                if (emailField.getText().matches("[a-z][a-z0-9]{2,6}@farmingdale.edu")) {
+                if ((emailField.getText().matches("[a-z][a-z0-9]{2,6}@farmingdale.edu")) ||(emailField.getText().matches("[A-Z][A-Z0-9]{2,6}@farmingdale.edu")) ) {
                     departmentField.setEditable(true);
                     emailField.setBorder(null);
                 } else
@@ -226,7 +226,6 @@ public class PrimaryController implements Initializable {
         });
 
         departmentField.setOnKeyPressed(event -> {
-
             if (event.getCode() != KeyCode.TAB && flag) {
                 departmentField.setStyle("-fx-border-color: black ; -fx-border-width: 1px ;");
                 outputLabel.setText("");
